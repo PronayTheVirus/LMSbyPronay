@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="836.0" prefWidth="1250.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.exmple.lmsfinalproject.HelloController">
+   <children>
+      <Pane layoutY="116.0" prefHeight="836.0" prefWidth="379.0">
+         <children>
+            <TextField fx:id="bookidField" layoutX="19.0" layoutY="20.0" prefHeight="26.0" prefWidth="342.0" promptText="Book id" />
+            <TextField fx:id="bookNameField" layoutX="19.0" layoutY="55.0" prefHeight="26.0" prefWidth="342.0" promptText="Book name" />
+            <TextField fx:id="bookAuthorField" layoutX="19.0" layoutY="90.0" prefHeight="26.0" prefWidth="342.0" promptText="Author name" />
+            <TextField fx:id="bookQuantityField" layoutX="19.0" layoutY="124.0" prefHeight="26.0" prefWidth="342.0" promptText="quantity" />
+            <TextField fx:id="bookLocationField" layoutX="19.0" layoutY="159.0" prefHeight="26.0" prefWidth="342.0" promptText="Book loation" />
+            <Button fx:id="bookSaveButton" layoutX="19.0" layoutY="193.0" mnemonicParsing="false" onAction="#addBook" prefHeight="26.0" prefWidth="342.0" style="-fx-background-color: green;" text="Confirm and add book" textFill="WHITE" />
+            <Pane layoutX="14.0" layoutY="259.0" prefHeight="117.0" prefWidth="342.0">
+               <children>
+                  <TextField fx:id="idFieldDelete" layoutX="15.0" layoutY="33.0" prefHeight="26.0" prefWidth="313.0" promptText="Enter book id" />
+                  <Button fx:id="deleteButton" layoutX="15.0" layoutY="69.0" mnemonicParsing="false" onAction="#setDeleteButton" prefHeight="26.0" prefWidth="313.0" style="-fx-background-color: red;" text="Confirm and delete book" textFill="WHITE" />
+               </children>
+            </Pane>
+            <Separator layoutX="14.0" layoutY="244.0" prefHeight="0.0" prefWidth="348.0" />
+            <Separator layoutX="28.0" layoutY="396.0" prefHeight="11.0" prefWidth="335.0" />
+            <TextField layoutX="28.0" layoutY="418.0" prefHeight="26.0" prefWidth="329.0" promptText="Book id" />
+            <TextField layoutX="28.0" layoutY="454.0" prefHeight="26.0" prefWidth="329.0" promptText="Book name" />
+            <TextField layoutX="28.0" layoutY="488.0" prefHeight="26.0" prefWidth="329.0" promptText="Author name" />
+            <TextField layoutX="28.0" layoutY="522.0" prefHeight="26.0" prefWidth="329.0" promptText="quantity" />
+            <TextField layoutX="28.0" layoutY="556.0" prefHeight="26.0" prefWidth="329.0" promptText="Book loation" />
+            <Button layoutX="28.0" layoutY="591.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="329.0" style="-fx-background-color: purple;" text="Confirm and update book" textFill="WHITE" />
+         </children>
+      </Pane>
+      <TableView fx:id="bookTableView" layoutX="399.0" layoutY="139.0" prefHeight="601.0" prefWidth="842.0">
+        <columns>
+          <TableColumn fx:id="idCol" prefWidth="75.0" text="#id" />
+          <TableColumn fx:id="nameCol" prefWidth="319.0" text="Book name" />
+            <TableColumn fx:id="authorCol" prefWidth="245.0" text="Author name" />
+            <TableColumn fx:id="quantityCol" prefWidth="69.0" text="quantity" />
+            <TableColumn fx:id="locationCol" prefWidth="136.0" text="book location" />
+        </columns>
+      </TableView>
+      <Separator layoutX="376.0" layoutY="139.0" orientation="VERTICAL" prefHeight="615.0" prefWidth="0.0" />
+      <Label layoutX="399.0" layoutY="-14.0" prefHeight="18.0" prefWidth="541.0" text="Book management section" textFill="#84629a">
+         <font>
+            <Font name="Noto Looped Thai Bold" size="38.0" />
+         </font>
+      </Label>
+      <Label fx:id="outputLabel" layoutX="399.0" layoutY="776.0" prefHeight="18.0" prefWidth="225.0" text="Label" />
+   </children>
+</AnchorPane>
