@@ -220,6 +220,8 @@ public class AdminController {
         }
     }
 
+
+    // admin top right goto dashboard
     public void gotoDashboard(ActionEvent event){
         HelloApplication.changeScene("dashboard");
     }
