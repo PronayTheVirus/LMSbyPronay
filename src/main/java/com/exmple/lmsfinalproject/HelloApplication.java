@@ -9,6 +9,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.Objects;
 
+
 public class HelloApplication extends Application {
     private static Stage stage;
     @Override
