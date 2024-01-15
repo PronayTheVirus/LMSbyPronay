@@ -12,6 +12,13 @@ import java.util.ResourceBundle;
 
 
 public class AdminController {
+    static String mail;
+
+    public static void SET_MAIL(String smail) {
+            mail =smail;
+    }
+    @FXML
+    private Label output;
 
     /* This section right here is to insert librarian data into
     the database . an admin can add librarians in here
@@ -82,15 +89,13 @@ public class AdminController {
 
     // librarian delete function
     public boolean deleteLibrarianFunction( String target){
-        System.out.println("test2");
+
         try{
             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/lms", "root", "password");
             System.out.println("Connection established");
             Statement statement = connection.createStatement();
-//            delete from librarian where email = '1'
             String query = "delete from librarian where email = '" + target+ "';";
             System.out.println("delete from librarian where email = '" + target+ "';");
-//            System.out.println("insert into memberinfo values('" + name + "'," + id + ",'" + department +"'," + batch +",'" + password +"');" );
             statement.execute(query);
             System.out.println("Librarian Delted");
             return true;
@@ -101,4 +106,122 @@ public class AdminController {
             return false;
         }
     }
+
+
+    // Database wipe out function
+    @FXML
+    private TextField pasfield;
+
+    public void admpass(ActionEvent event){
+        String pass = pasfield.getText();
+            try{
+                Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/lms", "root", "password");
+                Statement statement = connection.createStatement();
+                ResultSet resultSet = statement.executeQuery("SELECT * FROM admin WHERE email ='" + mail + "';");
+
+                while (resultSet.next()) {
+                    String password = resultSet.getString("pass");
+
+                    output.setText("Didn't match Data, try again!");
+                    // This section right here will verify user input
+                    if(Objects.equals(pass, password)){
+                        wipeOutTheDatabase();
+                    }
+                    else {
+                        output.setText("Didn't match Data, try again!");
+                    }
+                }
+            }
+            catch (SQLException e){
+                System.out.println("SQL exception occured");
+            }
+        }
+
+
+
+
+    // This function right here is to wipe out the full database
+    public void wipeOutTheDatabase(){
+        try{
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/lms", "root", "password");
+            System.out.println("Connection established");
+            Statement statement = connection.createStatement();
+            String query = "delete from librarian;";
+            statement.execute(query);
+            query = "delete from bookmanagement;";
+            statement.execute(query);
+            query = "delete from memberinfo;";
+            statement.execute(query);
+            query = "delete from requestBook;";
+            statement.execute(query);
+            query = "delete from lendreq;";
+            statement.execute(query);
+//            System.out.println("delete from librarian where email = '" + target+ "';");
+
+            output.setText("Wiped out everything from the database.");
+        }
+        catch (SQLException e){
+            System.out.println("SQL exception occured");
+            e.printStackTrace();
+        }
+    }
+
+    // section to change password of admin
+    // after verifying , it's going to wipe out and rewrite the DB
+    @FXML
+    private TextField oldPassField;
+    @FXML
+    private TextField newPassField;
+    public void setNewPass(ActionEvent event){
+        String oldPass = oldPassField.getText();
+        String newPass = newPassField.getText();
+        try{
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/lms", "root", "password");
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM admin WHERE email ='" + mail + "';");
+
+            while (resultSet.next()) {
+                String password = resultSet.getString("pass");
+
+                output.setText("Didn't match Data, try again!");
+                // This section right here will verify user input
+                if(Objects.equals(oldPass, password)){
+                    adminRewrite(mail,newPass);
+                    output.setText("Password changed");
+                }
+                else {
+                    output.setText("Didn't match Data, try again!");
+                }
+            }
+        }
+        catch (SQLException e){
+            System.out.println("SQL exception occured");
+        }
+
+    }
+
+    // this function is going to rewrite data into DB and wipe upon calling
+    public void adminRewrite(String mail, String pass){
+        try{
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/lms", "root", "password");
+            System.out.println("Connection established");
+            Statement statement = connection.createStatement();
+            String query = "delete from admin";
+            statement.execute(query);
+            query = "insert into admin values('" + mail + "','" + pass +"');";
+            statement.execute(query);
+//            System.out.println("delete from librarian where email = '" + target+ "';");
+
+            output.setText("Password changed successfully");
+        }
+        catch (SQLException e){
+            System.out.println("SQL exception occured");
+            e.printStackTrace();
+        }
+    }
+
+    public void gotoDashboard(ActionEvent event){
+        HelloApplication.changeScene("dashboard");
+    }
+
 }

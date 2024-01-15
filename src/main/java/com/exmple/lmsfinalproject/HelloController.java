@@ -216,6 +216,9 @@ public class HelloController implements Initializable {
                 /* this section is to verify the data with user input */
                 if(Objects.equals(adpass, pass)){
                     System.out.println("Verified admin");
+
+                    // passing admin mail for future use
+                    AdminController.SET_MAIL(mail);
                     HelloApplication.changeScene("admin");
                 }
                 else {
