@@ -16,15 +16,15 @@ public class HelloApplication extends Application {
     public void start(Stage stage) throws IOException {
         this.stage = stage;
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("dashboard.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 1400, 900);
-        stage.setTitle("Hello!");
+        Scene scene = new Scene(fxmlLoader.load(), 1234, 797);
+        stage.setTitle("TingTingLibrary Management system");
         stage.setScene(scene);
         stage.show();
     }
     public static void changeScene(String fileName) {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource( fileName + ".fxml"));
-            Scene scene = new Scene(fxmlLoader.load(), 1350, 900);
+            Scene scene = new Scene(fxmlLoader.load(), 1234, 797);
             stage.setScene(scene);
         } catch (IOException e) {
             System.err.println("Failed to load scene. File name : " + fileName);

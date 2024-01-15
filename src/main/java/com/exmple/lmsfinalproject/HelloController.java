@@ -71,7 +71,6 @@ public class HelloController implements Initializable {
         // in this case we are getting data from librarian
         try{
             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/lms", "root", "password");
-            System.out.println("Connection established");
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery("SELECT * FROM librarian WHERE email ='" + mail + "';");
             while (resultSet.next()) {
@@ -81,6 +80,7 @@ public class HelloController implements Initializable {
 
                 if(Objects.equals(id, password)){
                     System.out.println("Verified librarian");
+                    bookLabel.setText("hi");
                     HelloApplication.changeScene("librarian");  // passing it into change scene section
                 }
                 else {
@@ -92,9 +92,6 @@ public class HelloController implements Initializable {
         catch (SQLException e){
             System.out.println("SQL exception occured");
         }
-
-
-
 
     }
 
@@ -198,32 +195,28 @@ public class HelloController implements Initializable {
         }
 
     }
-    // this will redirect user to admin login page section
-    public void gotoAdminlogin(ActionEvent event){
-        HelloApplication.changeScene("adminlogin");
-    }
 
-    // admin login page view
+    /// admin login section part final
     @FXML
-    private TextField adminPassField;
+    TextField adminuserF;
     @FXML
-    private TextField adminMailField;
-    public void getAdminInfo(ActionEvent event){
-        String mail = adminMailField.getText();
-        String password = adminPassField.getText();
+    TextField adminpassF;
+    public void adminLogin(ActionEvent event){
+
+        String mail = adminuserF.getText();
+        String pass  = adminpassF.getText();
         try{
             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/lms", "root", "password");
             System.out.println("Connection established");
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery("SELECT * FROM admin WHERE email ='" + mail + "';");
             while (resultSet.next()) {
-//                String id = resultSet.getString("mail");  // says it has never been used , So i am comenting this out for now!
                 String adpass = resultSet.getString("pass");
 
                 /* this section is to verify the data with user input */
-                if(Objects.equals(adpass, password)){
+                if(Objects.equals(adpass, pass)){
                     System.out.println("Verified admin");
-                    HelloApplication.changeScene("isadmin");
+                    HelloApplication.changeScene("admin");
                 }
                 else {
                     System.out.println("Didn't match");
@@ -234,7 +227,9 @@ public class HelloController implements Initializable {
             System.out.println("SQL exception occured");
         }
 
+
     }
+
 
 }
 

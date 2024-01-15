@@ -2,7 +2,8 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -12,27 +13,12 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="797.0" prefWidth="1234.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.exmple.lmsfinalproject.HelloController">
    <children>
-      <Separator layoutX="331.0" layoutY="109.0" orientation="VERTICAL" prefHeight="671.0" prefWidth="16.0" />
-      <Label layoutX="73.0" layoutY="452.0" text="Already have an account?">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Label>
-      <Button layoutX="125.0" layoutY="549.0" mnemonicParsing="false" onAction="#isStudent" prefHeight="26.0" prefWidth="87.0" style="-fx-background-color: blue;" text="login" textFill="WHITE" />
-      <Button layoutX="23.0" layoutY="723.0" mnemonicParsing="false" onAction="#onLibraianLogin" prefHeight="26.0" prefWidth="290.0" style="-fx-background-color: green;" text="Librarian login" textFill="WHITE" />
-      <TextField fx:id="employeeID" layoutX="22.0" layoutY="647.0" prefHeight="26.0" prefWidth="290.0" promptText="Employee mail" />
-      <TextField fx:id="emppassword" layoutX="23.0" layoutY="684.0" prefHeight="26.0" prefWidth="290.0" promptText="password" />
-      <TextField fx:id="studentIDfield" layoutX="23.0" layoutY="478.0" prefHeight="26.0" prefWidth="290.0" promptText="Student ID" />
-      <TextField fx:id="passSTDfield" layoutX="22.0" layoutY="517.0" prefHeight="26.0" prefWidth="290.0" promptText="password" />
-      <Separator layoutX="64.0" layoutY="421.0" prefWidth="200.0" />
-      <Separator layoutX="64.0" layoutY="611.0" prefWidth="200.0" />
-      <Label fx:id="buildLog" layoutX="347.0" layoutY="743.0" prefHeight="40.0" prefWidth="877.0" style="-fx-background-color: black;" text="Build log message:" textFill="RED">
+      <Label fx:id="buildLog" layoutX="-3.0" layoutY="743.0" prefHeight="56.0" prefWidth="1243.0" style="-fx-background-color: black;" text="        Build log message:" textFill="RED">
          <font>
             <Font name="DejaVu Sans Mono Bold" size="13.0" />
          </font>
       </Label>
-      <Button layoutX="22.0" layoutY="761.0" mnemonicParsing="false" onAction="#gotoAdminlogin" prefHeight="26.0" prefWidth="290.0" style="-fx-background-color: red;" text="Admin login" textFill="WHITE" />
-      <Pane layoutX="347.0" layoutY="549.0" prefHeight="197.0" prefWidth="877.0" style="-fx-background-color: yellow; -fx-border-color: black;">
+      <Pane layoutX="-3.0" layoutY="549.0" prefHeight="197.0" prefWidth="1243.0" style="-fx-background-color: yellow;">
          <children>
             <Label fx:id="bookLabel" layoutX="35.0" layoutY="121.0" prefHeight="71.0" prefWidth="220.0" style="-fx-background-color: 0;" text="36+ books">
                <font>
@@ -66,20 +52,71 @@
             </ImageView>
          </children>
       </Pane>
-      <Pane layoutX="11.0" layoutY="13.0" prefHeight="397.0" prefWidth="322.0" style="-fx-background-color: #BFEE90;">
-         <children>
-            <TextField fx:id="studentName" layoutX="14.0" layoutY="103.0" prefHeight="26.0" prefWidth="290.0" promptText="Student name" />
-            <TextField fx:id="studentID" layoutX="14.0" layoutY="144.0" prefHeight="26.0" prefWidth="290.0" promptText="Student Code" />
-            <TextField fx:id="studentDepartment" layoutX="14.0" layoutY="192.0" prefHeight="26.0" prefWidth="290.0" promptText="department" />
-            <TextField fx:id="studentBatch" layoutX="14.0" layoutY="236.0" prefHeight="26.0" prefWidth="290.0" promptText="batch" />
-            <TextField fx:id="studentPassword" layoutX="14.0" layoutY="280.0" prefHeight="26.0" prefWidth="290.0" promptText="password" />
-            <Button fx:id="createAccountButton" layoutX="14.0" layoutY="328.0" mnemonicParsing="false" onAction="#onCreateAccountClick" prefHeight="26.0" prefWidth="290.0" style="-fx-background-color: black;" text="Create an account" textFill="WHITE" />
-            <Label layoutX="21.0" layoutY="43.0" text="Account opening">
-               <font>
-                  <Font name="Noto Serif CJK SC Bold" size="32.0" />
-               </font>
-            </Label>
-         </children>
-      </Pane>
+      <TabPane layoutX="-1.0" layoutY="75.0" prefHeight="469.0" prefWidth="1234.0" rotateGraphic="true" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Create account">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="444.0" prefWidth="598.0">
+                     <children>
+                        <Pane prefHeight="368.0" prefWidth="173.0" />
+                        <TextField fx:id="studentName" layoutX="466.0" layoutY="60.0" prefHeight="41.0" prefWidth="290.0" promptText="Student name" style="-fx-background-radius: 0;">
+                           <font>
+                              <Font name="DejaVu Sans" size="13.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="studentID" layoutX="466.0" layoutY="120.0" prefHeight="40.0" prefWidth="290.0" promptText="Student Code" />
+                        <TextField fx:id="studentDepartment" layoutX="466.0" layoutY="178.0" prefHeight="41.0" prefWidth="290.0" promptText="department" />
+                        <TextField fx:id="studentBatch" layoutX="466.0" layoutY="234.0" prefHeight="37.0" prefWidth="290.0" promptText="batch" />
+                        <TextField fx:id="studentPassword" layoutX="466.0" layoutY="285.0" prefHeight="38.0" prefWidth="290.0" promptText="password" />
+                        <Button fx:id="createAccountButton" layoutX="466.0" layoutY="332.0" mnemonicParsing="false" onAction="#onCreateAccountClick" prefHeight="37.0" prefWidth="290.0" style="-fx-background-color: black;" text="Create an account" textFill="WHITE" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Member login">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TextField fx:id="studentIDfield" layoutX="472.0" layoutY="177.0" prefHeight="42.0" prefWidth="290.0" promptText="Student ID" />
+                        <TextField fx:id="passSTDfield" layoutX="473.0" layoutY="233.0" prefHeight="40.0" prefWidth="290.0" promptText="password" />
+                        <Button layoutX="474.0" layoutY="286.0" mnemonicParsing="false" onAction="#isStudent" prefHeight="42.0" prefWidth="289.0" style="-fx-background-color: black;" text="login" textFill="WHITE" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab text="Librarian login">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TextField fx:id="employeeID" layoutX="472.0" layoutY="151.0" prefHeight="48.0" prefWidth="290.0" promptText="Employee mail" />
+                        <TextField fx:id="emppassword" layoutX="472.0" layoutY="207.0" prefHeight="48.0" prefWidth="290.0" promptText="password" />
+                        <Button layoutX="472.0" layoutY="262.0" mnemonicParsing="false" onAction="#onLibraianLogin" prefHeight="48.0" prefWidth="290.0" style="-fx-background-color: black;" text="Librarian login" textFill="WHITE" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Admin login">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TextField fx:id="adminuserF" layoutX="478.0" layoutY="146.0" prefHeight="48.0" prefWidth="311.0" promptText="Enter admin mail" style="-fx-background-radius: 0;" />
+                        <TextField fx:id="adminpassF" layoutX="478.0" layoutY="219.0" prefHeight="49.0" prefWidth="311.0" promptText="password" style="-fx-background-radius: 0;" />
+                        <Button layoutX="478.0" layoutY="285.0" mnemonicParsing="false" onAction="#adminLogin" prefHeight="41.0" prefWidth="311.0" style="-fx-background-radius: 0; -fx-background-color: black;" text="Admin login" textFill="WHITE" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+      <Label fx:id="buildLog1" contentDisplay="CENTER" layoutX="-3.0" layoutY="-8.0" prefHeight="83.0" prefWidth="1243.0" style="-fx-background-color: #333333;" text="                               TINGTING Library" textFill="#ffd633">
+         <font>
+            <Font name="Noto Sans Bengali Bold" size="51.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="56.0" fitWidth="63.0" layoutX="345.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../icons/library.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
