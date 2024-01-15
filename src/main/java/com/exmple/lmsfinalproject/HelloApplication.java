@@ -15,7 +15,7 @@ public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         this.stage = stage;
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("dashboard.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("admin.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1234, 797);
         stage.setTitle("TingTingLibrary Management system");
         stage.setScene(scene);

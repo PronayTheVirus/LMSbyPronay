@@ -41,7 +41,7 @@ public class HelloController implements Initializable {
             System.out.println("Connection established");
             Statement statement = connection.createStatement();
             String query = "insert into memberinfo values('" + name + "'," + id + ",'" + department +"'," + batch +",'" + password +"');" ;
-            System.out.println("insert into memberinfo values('" + name + "'," + id + ",'" + department +"'," + batch +",'" + password +"');" );
+//            System.out.println("insert into memberinfo values('" + name + "'," + id + ",'" + department +"'," + batch +",'" + password +"');" );
             statement.execute(query);
             System.out.println("DATA INSERTED");
         }
