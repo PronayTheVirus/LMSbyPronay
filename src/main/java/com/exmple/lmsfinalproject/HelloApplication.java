@@ -30,6 +30,7 @@ public class HelloApplication extends Application {
             System.err.println("Failed to load scene. File name : " + fileName);
             e.printStackTrace();
         }
+
     }
     public static void main(String[] args) {
         launch();
