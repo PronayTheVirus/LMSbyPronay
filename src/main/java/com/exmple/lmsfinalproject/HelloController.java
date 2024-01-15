@@ -1,135 +1,19 @@
 package com.exmple.lmsfinalproject;
 
-import javafx.beans.Observable;
-import javafx.beans.property.SimpleDoubleProperty;
-import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableArray;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.Collection;
+import java.sql.*;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class HelloController implements Initializable {
     @FXML
-    private Label welcomeText;
+    public Label bookLabel;
 
-    @FXML
-    protected void onHelloButtonClick() {
-        welcomeText.setText("Welcome to JavaFX Application!");
-    }
-
-
-    @FXML
-    private TextField bookidField;
-    @FXML
-    private TextField bookNameField;
-    @FXML
-    private TextField bookAuthorField;
-    @FXML
-    private TextField bookQuantityField;
-    @FXML
-    private TextField bookLocationField;
-    @FXML
-    private TableColumn<Book, Number> idCol;
-    @FXML
-    private TableColumn<Book, Number> quantityCol;
-    @FXML
-    private TableColumn<Book, String> nameCol;
-    @FXML
-    private TableColumn<Book, String> authorCol;
-    @FXML
-    private TableColumn<Book, String> locationCol;
-    @FXML
-    private TableView<Book> bookTableView;
-
-
-
-    ObservableList<Book> bookObservableList;
-
-    public void addBook(ActionEvent event){
-        int id= Integer.parseInt(bookidField.getText());
-        String name = bookNameField.getText();
-        String author = bookAuthorField.getText();
-        int quantity = Integer.parseInt(bookQuantityField.getText());
-        String location = bookLocationField.getText();
-
-        Book book = new Book(id, name, author, quantity, location);
-        bookObservableList.add(book);
-
-        //This line is to put data into database
-        insertBook(book);
-    }
-
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        idCol.setCellValueFactory( c-> new SimpleIntegerProperty(c.getValue().getId()));
-        quantityCol.setCellValueFactory(c -> new SimpleIntegerProperty(c.getValue().getQuantity()));
-        nameCol.setCellValueFactory( c-> new SimpleStringProperty(c.getValue().getName()));
-        authorCol.setCellValueFactory( c-> new SimpleStringProperty(c.getValue().getAuthor()));
-        locationCol.setCellValueFactory( c-> new SimpleStringProperty(c.getValue().getLocation()));
-
-        bookObservableList = FXCollections.observableArrayList();
-        bookTableView.setItems(bookObservableList);
-    }
-
-
-    // Section to insert data (book management section) into database
-    // refer to practise jan 4-24 for any doubt
-
-    public void insertBook (Book book){
-        try{
-        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/lms", "root", "password");
-        System.out.println("Connection established");
-        Statement statement = connection.createStatement();
-        String query = "insert into bookmanagement values(" + book.getId() + ",'" + book.getName() + "','" + book.getAuthor() + "'," + book.getQuantity() + ",'" + book.getLocation() + "');" ;
-        statement.execute(query);
-        }
-        catch (SQLException e){
-            System.out.println("SQL exception occured");
-        }
-    }
-
-    // This section is to delete books
-    // the command to delete is 'delete from bookmanagement where id = 1;'
-    // delete from table where id = 1;
-    @FXML
-    private Label outputLabel;
-    @FXML
-    private TextField idFieldDelete;
-    @FXML
-    private Button deleteButton;
-    public void setDeleteButton(ActionEvent event){
-        int target = Integer.parseInt(idFieldDelete.getText());
-        deleteBook(target);
-        System.out.println(target);
-    }
-
-    public void deleteBook (int id){
-        try{
-            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/lms", "root", "password");
-            System.out.println("Connection established");
-            Statement statement = connection.createStatement();
-            String query = "delete from bookmanagement where id =" + id +";";
-            statement.execute(query);
-            System.out.println("Deleted book");
-            outputLabel.setText("Book deleted with id "+ id);
-
-        }
-        catch (SQLException e){
-            System.out.println("SQL exception occured");
-        }
-    }
 
     // Dashboard create account section and inserting those data into database
     @FXML
@@ -175,16 +59,41 @@ public class HelloController implements Initializable {
     private TextField employeeID;
     @FXML
     private TextField emppassword;
+    @FXML
+    private Label buildLog;
     public void onLibraianLogin(ActionEvent event){  // librarian login trigger button
         String mail = employeeID.getText();
         String password = emppassword.getText();
         System.out.println("test" + mail + " " + password);
 
-        /* Write code here to get employee email and password from database
-        and verify it
-        if passed change the scene to librarian scene
-         */
-        HelloApplication.changeScene("librarian");  // passing it into change scene section
+        // this section is to retrive a specific colum form the database
+        // such as getting the password based on email or else
+        // in this case we are getting data from librarian
+        try{
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/lms", "root", "password");
+            System.out.println("Connection established");
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM librarian WHERE email ='" + mail + "';");
+            while (resultSet.next()) {
+                String id = resultSet.getString("loginpass");
+
+                /* this section is to verify the data with user input */
+
+                if(Objects.equals(id, password)){
+                    System.out.println("Verified librarian");
+                    HelloApplication.changeScene("librarian");  // passing it into change scene section
+                }
+                else {
+                    System.out.println("Didn't match");
+                    buildLog.setText("Password didn't match! TRY AGAIN");
+                }
+            }
+        }
+        catch (SQLException e){
+            System.out.println("SQL exception occured");
+        }
+
+
 
 
     }
@@ -200,4 +109,132 @@ public class HelloController implements Initializable {
         HelloApplication.changeScene("bookmanagementsection");
     }
 
+
+//    // delete this section right here till ===========
+//    public void addBook(ActionEvent event) {
+//    }
+//    public void setDeleteButton(ActionEvent event){
+//
+//    }
+////    ======================================= till here
+
+
+    /* student login section
+    After verifying it will send the user to student section
+     */
+    @FXML
+    private TextField studentIDfield;
+    @FXML
+    private TextField passSTDfield;
+    public void isStudent(ActionEvent event){
+        int stdId = Integer.parseInt(studentIDfield.getText());
+        String stdPass = passSTDfield.getText();
+        try{
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/lms", "root", "password");
+            System.out.println("Connection established");
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM memberinfo WHERE id ='" + stdId + "';");
+            while (resultSet.next()) {
+                String id = resultSet.getString("loginpassword");
+
+                /* this section is to verify the data with user input */
+                if(Objects.equals(id, stdPass)){
+                    System.out.println("Verified Student");
+
+                    HelloApplication.changeScene("isStudent");
+                    StudentController.passID(stdId);  ;// passing it into change scene section
+                }
+                else {
+                    System.out.println("Didn't match");
+                    buildLog.setText("client: student, Password didn't match! TRY AGAIN");
+                }
+            }
+        }
+        catch (SQLException e){
+            System.out.println("SQL exception occured");
+        }
+
+
+    }
+
+// to view book count upon start of the project
+    @FXML private Label memberLabel;
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        try{
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/lms", "root", "password");
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery("select count(*) as id from bookmanagement;");
+
+            while (resultSet.next()) {
+                String id = resultSet.getString("id");
+                bookLabel.setText(id + " Books");
+
+            }
+        }
+        catch (SQLException e){
+            System.out.println("SQL exception occured");
+        }
+
+
+
+        // this section is to show membercount upon starting
+        try{
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/lms", "root", "password");
+            System.out.println("Connection established");
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery("select count(*) as id from memberinfo;");
+
+            while (resultSet.next()) {
+                String id = resultSet.getString("id");
+
+                memberLabel.setText(id + " members");
+                System.out.println(id);
+
+            }
+        }
+        catch (SQLException e){
+            System.out.println("SQL exception occured");
+        }
+
+    }
+    // this will redirect user to admin login page section
+    public void gotoAdminlogin(ActionEvent event){
+        HelloApplication.changeScene("adminlogin");
+    }
+
+    // admin login page view
+    @FXML
+    private TextField adminPassField;
+    @FXML
+    private TextField adminMailField;
+    public void getAdminInfo(ActionEvent event){
+        String mail = adminMailField.getText();
+        String password = adminPassField.getText();
+        try{
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/lms", "root", "password");
+            System.out.println("Connection established");
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM admin WHERE email ='" + mail + "';");
+            while (resultSet.next()) {
+//                String id = resultSet.getString("mail");  // says it has never been used , So i am comenting this out for now!
+                String adpass = resultSet.getString("pass");
+
+                /* this section is to verify the data with user input */
+                if(Objects.equals(adpass, password)){
+                    System.out.println("Verified admin");
+                    HelloApplication.changeScene("isadmin");
+                }
+                else {
+                    System.out.println("Didn't match");
+                }
+            }
+        }
+        catch (SQLException e){
+            System.out.println("SQL exception occured");
+        }
+
+    }
+
 }
+

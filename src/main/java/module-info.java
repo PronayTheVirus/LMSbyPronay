@@ -6,6 +6,7 @@ module com.exmple.lmsfinalproject {
     requires org.controlsfx.controls;
     requires com.dlsc.formsfx;
     requires org.kordamp.bootstrapfx.core;
+    requires kotlin.stdlib;
 
     opens com.exmple.lmsfinalproject to javafx.fxml;
     exports com.exmple.lmsfinalproject;

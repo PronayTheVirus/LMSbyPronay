@@ -10,7 +10,8 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="836.0" prefWidth="1250.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.exmple.lmsfinalproject.BookManagementController">
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="836.0" prefWidth="1250.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.exmple.lmsfinalproject.HelloController">
    <children>
       <Pane layoutY="116.0" prefHeight="836.0" prefWidth="379.0">
          <children>
@@ -52,7 +53,5 @@
          </font>
       </Label>
       <Label fx:id="outputLabel" layoutX="399.0" layoutY="776.0" prefHeight="18.0" prefWidth="225.0" text="Label" />
-      <Button layoutX="1031.0" layoutY="14.0" mnemonicParsing="false" onAction="#gotoDashboard" prefHeight="26.0" prefWidth="205.0" style="-fx-background-color: red;" text="Go back to dashboard" textFill="WHITE" />
-      <Button layoutX="1031.0" layoutY="44.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="205.0" style="-fx-background-color: black;" text="Previous page" textFill="WHITE" />
    </children>
 </AnchorPane>

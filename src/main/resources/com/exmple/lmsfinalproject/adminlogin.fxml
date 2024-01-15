@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="914.0" prefWidth="1151.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.exmple.lmsfinalproject.HelloController">
+   <children>
+      <Pane layoutX="-511.0" layoutY="-7.0" prefHeight="921.0" prefWidth="1902.0" style="-fx-background-color: #52a666;">
+         <children>
+            <Pane layoutX="-12.0" layoutY="-8.0" prefHeight="706.0" prefWidth="394.0" style="-fx-background-color: #343f71;">
+               <children>
+                  <Button layoutY="183.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="394.0" style="-fx-background-color: #343f71;" text="librarian DB" textFill="WHITE">
+                     <font>
+                        <Font name="Liberation Mono" size="28.0" />
+                     </font>
+                  </Button>
+                  <Button layoutY="229.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="394.0" style="-fx-background-color: #343f71;" text="members info" textFill="WHITE">
+                     <font>
+                        <Font name="Liberation Mono" size="28.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="72.0" layoutY="316.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="251.0" style="-fx-background-color: red;" text="All the books" textFill="WHITE">
+                     <font>
+                        <Font name="Liberation Mono" size="22.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="50.0" layoutY="399.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="306.0" style="-fx-background-color: red;" text="WIPE OUT EVERYTHING!" textFill="WHITE">
+                     <font>
+                        <Font name="Liberation Mono" size="20.0" />
+                     </font>
+                  </Button>
+               </children>
+            </Pane>
+            <TextField fx:id="adminMailField" layoutX="959.0" layoutY="274.0" prefHeight="61.0" prefWidth="380.0" promptText="admin mail" style="-fx-background-color: black; -fx-background-radius: 90;">
+               <font>
+                  <Font name="Liberation Mono" size="15.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="adminPassField" layoutX="959.0" layoutY="373.0" prefHeight="61.0" prefWidth="380.0" promptText="Password" style="-fx-background-color: black; -fx-background-radius: 90;">
+               <font>
+                  <Font name="Liberation Mono" size="16.0" />
+               </font>
+            </TextField>
+            <Button layoutX="1076.0" layoutY="457.0" mnemonicParsing="false" style="-fx-background-color: yellow; -fx-background-radius: 30;" text="COnfirm login">
+               <font>
+                  <Font name="Liberation Mono Bold" size="16.0" />
+               </font>
+            </Button>
+            <Label layoutX="1000.0" layoutY="206.0" prefHeight="44.0" prefWidth="320.0" text="Login with your info" textFill="WHITE">
+               <font>
+                  <Font name="Liberation Mono" size="24.0" />
+               </font>
+            </Label>
+            <Button layoutX="1578.0" layoutY="48.0" mnemonicParsing="false" text="goto Dashboard" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

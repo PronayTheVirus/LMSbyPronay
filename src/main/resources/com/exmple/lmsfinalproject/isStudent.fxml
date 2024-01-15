@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="883.0" prefWidth="1202.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.exmple.lmsfinalproject.StudentController">
+   <children>
+      <Label layoutX="503.0" layoutY="65.0" text="Student section">
+         <font>
+            <Font name="Liberation Mono Bold" size="36.0" />
+         </font>
+      </Label>
+      <Label layoutX="463.0" layoutY="19.0" text="TingTing Library, Dhaka">
+         <font>
+            <Font name="Liberation Mono" size="32.0" />
+         </font>
+      </Label>
+      <TextField fx:id="bookIdField" layoutX="40.0" layoutY="209.0" prefHeight="26.0" prefWidth="334.0" promptText="Enter book serial no" />
+      <Button layoutX="40.0" layoutY="244.0" mnemonicParsing="false" onAction="#onClickSendBookLendReq" prefHeight="26.0" prefWidth="334.0" style="-fx-background-color: green;" text="Request Book (send lend request)" textFill="WHITE" />
+      <Button layoutX="40.0" layoutY="361.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="334.0" style="-fx-background-color: green;" text="Change password" textFill="WHITE" />
+      <Button fx:id="gotobutton" layoutX="1033.0" layoutY="13.0" mnemonicParsing="false" onAction="#gotoDash" prefHeight="26.0" prefWidth="155.0" style="-fx-background-color: red;" text="Goto Dashboard" textFill="WHITE" />
+      <Separator layoutX="408.0" layoutY="187.0" orientation="VERTICAL" prefHeight="655.0" prefWidth="5.0" />
+      <Separator layoutX="40.0" layoutY="313.0" prefHeight="0.0" prefWidth="351.0" />
+      <Button layoutX="40.0" layoutY="400.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="334.0" style="-fx-background-color: green;" text="View fines" textFill="WHITE" />
+      <Button layoutX="40.0" layoutY="442.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="334.0" style="-fx-background-color: green;" text="Send note to librarian" textFill="WHITE" />
+      <Button layoutX="40.0" layoutY="482.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="334.0" style="-fx-background-color: green;" text="Extend time" textFill="WHITE" />
+      <Button layoutX="40.0" layoutY="526.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="334.0" style="-fx-background-color: green;" text="Books I've lent" textFill="WHITE" />
+      <TableView layoutX="421.0" layoutY="361.0" prefHeight="467.0" prefWidth="762.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="C1" />
+          <TableColumn prefWidth="75.0" text="C2" />
+        </columns>
+      </TableView>
+      <ImageView fitHeight="56.0" fitWidth="51.0" layoutX="402.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../icons/library.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
