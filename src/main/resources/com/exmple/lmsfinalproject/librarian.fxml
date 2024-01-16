@@ -122,7 +122,7 @@
                   </AnchorPane>
                </content>
             </Tab>
-            <Tab text="View fines">
+            <Tab text="Receive book &amp; view fines">
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
@@ -133,6 +133,17 @@
                         </ImageView>
                         <Button layoutX="460.0" layoutY="263.0" mnemonicParsing="false" onAction="#viewFines" prefHeight="39.0" prefWidth="322.0" style="-fx-background-color: #66ba79;" text="View fines" />
                         <TextField fx:id="sID" layoutX="461.0" layoutY="217.0" prefHeight="37.0" prefWidth="319.0" promptText="Student ID" />
+                        <Label layoutX="461.0" layoutY="302.0" prefHeight="39.0" prefWidth="91.0" text="Output:">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Label>
+                        <Button layoutX="460.0" layoutY="341.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="322.0" style="-fx-background-color: #66ba79;" text="Receive book" />
+                        <Label fx:id="fineShow" layoutX="529.0" layoutY="302.0" prefHeight="39.0" prefWidth="671.0" text="Fine amount" textFill="RED">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Label>
                      </children>
                   </AnchorPane>
                </content>

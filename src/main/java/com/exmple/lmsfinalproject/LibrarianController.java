@@ -8,11 +8,25 @@ import javafx.scene.control.*;
 import java.net.URL;
 import java.sql.*;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import java.util.Locale;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
+import static java.time.temporal.ChronoUnit.DAYS;
+
 public class LibrarianController {
+    int fines_per_day = 10;
+
+    public int getFines_per_day() {
+        return fines_per_day;
+    }
+
+    public void setFines_per_day(int fines_per_day) {
+        this.fines_per_day = fines_per_day;
+    }
+
     // this will take librarian to book management section
     public void gotoBookManagement(ActionEvent event){
             HelloApplication.changeScene("bookmanagementsection");
@@ -20,6 +34,7 @@ public class LibrarianController {
     public void gotoDashboard(ActionEvent event){
         HelloApplication.changeScene("dashboard");
     }
+
 
     // this part is to view students profile
     // it is going to take id as input from user and show details
@@ -69,6 +84,8 @@ public class LibrarianController {
     private Label issueLabel;
     @FXML
     private Label issueLabel11;
+    @FXML
+    private Label fineShow;
 
     /// issue books section
     @FXML private TextField idStudentField;
@@ -160,7 +177,55 @@ public class LibrarianController {
 
     }
 
-    //
+    public long daysBetweenInclusive(LocalDate ld1, LocalDate ld2) {
+        return Math.abs(ChronoUnit.DAYS.between(ld1, ld2)) + 1;
+    }
+
+    // Fines calculator function
+    public long finesCalculator(int id){
+        long fines = 0;
+
+        try{
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/lms", "root", "password");
+            System.out.println("Connection established");
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM issuebook WHERE id ='" + id + "';");
+            while (resultSet.next()) {
+                String localdateStr = resultSet.getString("returndate");
+
+
+                // converting string date to localtime
+                LocalDate localDate1 = LocalDate.now();
+                LocalDate localDate = LocalDate.parse(localdateStr);  // localdate converter
+
+                long finesDay = DAYS.between(localDate1,localDate) -2;
+                System.out.println(finesDay);
+
+                fines = fines_per_day*finesDay;
+                System.out.println("FINE AMMount " + fines);
+                fineShow.setText("Fine amount" + String.valueOf(fines) + " TK");  // to show fine ammount in label
+            }
+        }
+        catch (SQLException e){
+            System.out.println("SQL exception occured");
+        }
+
+        return fines;
+    }
+
+
+    // view fines and receive book section
+
+    @FXML
+    private TextField sID;
+    public void viewFines(ActionEvent event) {
+        int id = Integer.parseInt(sID.getText());
+
+        // in case the student doesn't exist
+        fineShow.setText("Couldn't found any match with target");
+        finesCalculator(id); // fine calculator call
+
+    }
 
 
 }
