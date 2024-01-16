@@ -4,6 +4,11 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
@@ -19,41 +24,87 @@
             <Font name="Liberation Mono" size="13.0" />
          </font>
       </Button>
-      <AnchorPane layoutX="-453.0" layoutY="266.0" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-      <TabPane layoutY="84.0" prefHeight="611.0" prefWidth="1240.0" tabClosingPolicy="UNAVAILABLE">
+      <TabPane layoutY="84.0" prefHeight="703.0" prefWidth="1240.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
           <Tab text="Goto book management section">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="435.0" prefWidth="1168.0">
                      <children>
-                        <Button layoutX="354.0" layoutY="327.0" mnemonicParsing="false" onAction="#gotoBookManagement" prefHeight="47.0" prefWidth="425.0" style="-fx-background-color: black;" text="Book management section" textFill="WHITE">
+                        <Button layoutX="399.0" layoutY="373.0" mnemonicParsing="false" onAction="#gotoBookManagement" prefHeight="47.0" prefWidth="425.0" style="-fx-background-color: black;" text="Goto Book management section" textFill="WHITE">
                            <font>
                               <Font name="Droid Sans Fallback" size="13.0" />
                            </font>
                         </Button>
+                        <ImageView fitHeight="192.0" fitWidth="220.0" layoutX="509.0" layoutY="171.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icons/execution.png" />
+                           </image>
+                        </ImageView>
                      </children>
                   </AnchorPane>
             </content>
           </Tab>
             <Tab text="Extend time">
                <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fitHeight="102.0" fitWidth="120.0" layoutX="569.0" layoutY="82.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icons/save-time.png" />
+                           </image>
+                        </ImageView>
+                        <TextField layoutX="455.0" layoutY="261.0" prefHeight="43.0" prefWidth="328.0" />
+                        <Button layoutX="455.0" layoutY="317.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="331.0" style="-fx-background-color: #93e7f8;" text="Extend time + 4d" />
+                     </children>
+                  </AnchorPane>
                </content>
             </Tab>
             <Tab text="View fines">
                <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fitHeight="120.0" fitWidth="111.0" layoutX="565.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icons/fine.png" />
+                           </image>
+                        </ImageView>
+                        <Button layoutX="460.0" layoutY="263.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="322.0" style="-fx-background-color: #66ba79;" text="View fines" />
+                        <TextField layoutX="461.0" layoutY="217.0" prefHeight="37.0" prefWidth="319.0" promptText="Student ID" />
+                     </children>
+                  </AnchorPane>
                </content>
             </Tab>
             <Tab text="View student profile">
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="150.0" prefWidth="865.0">
                      <children>
-                        <Button layoutX="367.0" layoutY="61.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="425.0" style="-fx-background-color: green;" text="view student profile" textFill="WHITE">
+                        <ImageView fitHeight="141.0" fitWidth="127.0" layoutX="557.0" layoutY="61.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icons/graduated.png" />
+                           </image>
+                        </ImageView>
+                        <TextField layoutX="458.0" layoutY="206.0" prefHeight="34.0" prefWidth="323.0" promptText="Enter student ID" />
+                        <Button layoutX="458.0" layoutY="254.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="324.0" style="-fx-background-color: #407093;" text="Search" textFill="WHITE" />
+                        <Label layoutX="294.0" layoutY="370.0" prefHeight="34.0" prefWidth="700.0" text="Student Name">
                            <font>
-                              <Font name="Liberation Mono" size="13.0" />
+                              <Font size="18.0" />
                            </font>
-                        </Button>
+                        </Label>
+                        <Label layoutX="294.0" layoutY="404.0" prefHeight="34.0" prefWidth="700.0" text="Student ID">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="294.0" layoutY="438.0" prefHeight="34.0" prefWidth="700.0" text="Department">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="294.0" layoutY="466.0" prefHeight="34.0" prefWidth="700.0" text="Batch">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
                      </children>
                   </AnchorPane>
                </content>
@@ -62,11 +113,25 @@
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <Button layoutX="330.0" layoutY="91.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="425.0" style="-fx-background-color: green;" text="view issued books" textFill="WHITE">
+                        <ImageView fitHeight="116.0" fitWidth="113.0" layoutX="533.0" layoutY="59.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icons/read.png" />
+                           </image>
+                        </ImageView>
+                        <Button layoutX="457.0" layoutY="186.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="265.0" style="-fx-background-color: #da4a54;" text="Load issued books">
                            <font>
-                              <Font name="Liberation Mono" size="13.0" />
+                              <Font name="DejaVu Sans Mono Bold" size="13.0" />
                            </font>
                         </Button>
+                        <TableView layoutY="236.0" prefHeight="434.0" prefWidth="1234.0">
+                          <columns>
+                            <TableColumn prefWidth="75.0" text="Student ID" />
+                            <TableColumn prefWidth="302.0" text="Student Name" />
+                              <TableColumn prefWidth="479.0" text="Book assigned" />
+                              <TableColumn prefWidth="187.0" text="Book id" />
+                              <TableColumn prefWidth="187.0" text="Return date" />
+                          </columns>
+                        </TableView>
                      </children>
                   </AnchorPane>
                </content>
@@ -75,16 +140,23 @@
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <Button layoutX="330.0" layoutY="91.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="425.0" style="-fx-background-color: green;" text="view issued books" textFill="WHITE">
-                           <font>
-                              <Font name="Liberation Mono" size="13.0" />
-                           </font>
-                        </Button>
-                        <Button layoutX="362.0" layoutY="27.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="425.0" style="-fx-background-color: green;" text="View book issue request" textFill="WHITE">
-                           <font>
-                              <Font name="Liberation Mono" size="13.0" />
-                           </font>
-                        </Button>
+                        <ImageView fitHeight="119.0" fitWidth="131.0" layoutX="561.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icons/interview.png" />
+                           </image>
+                        </ImageView>
+                        <Button layoutX="480.0" layoutY="176.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="280.0" style="-fx-background-color: #88c116;" text="Load requests" />
+                        <TableView layoutX="12.0" layoutY="279.0" prefHeight="379.0" prefWidth="1217.0">
+                          <columns>
+                            <TableColumn prefWidth="75.0" text="Student ID" />
+                            <TableColumn prefWidth="292.0" text="Student Name" />
+                              <TableColumn prefWidth="126.0" text="Book id " />
+                              <TableColumn prefWidth="461.0" text="Book name" />
+                              <TableColumn prefWidth="262.0" text="Author" />
+                          </columns>
+                        </TableView>
+                        <TextField layoutX="410.0" layoutY="227.0" prefHeight="35.0" prefWidth="290.0" promptText="Enter student ID" />
+                        <Button layoutX="709.0" layoutY="227.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="115.0" style="-fx-background-color: #f9ae85;" text="Assign book" />
                      </children>
                   </AnchorPane>
                </content>
@@ -93,11 +165,13 @@
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <Button layoutX="392.0" layoutY="261.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="425.0" style="-fx-background-color: green;" text="Save books into text file" textFill="WHITE">
-                           <font>
-                              <Font name="Liberation Mono" size="13.0" />
-                           </font>
-                        </Button>
+                        <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="545.0" layoutY="78.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icons/cloud-computing.png" />
+                           </image>
+                        </ImageView>
+                        <TextField layoutX="440.0" layoutY="249.0" prefHeight="39.0" prefWidth="360.0" promptText="Enter filename to save it" />
+                        <Button layoutX="439.0" layoutY="299.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="363.0" style="-fx-background-color: #b2d4ef;" text="Button" />
                      </children>
                   </AnchorPane>
                </content>
