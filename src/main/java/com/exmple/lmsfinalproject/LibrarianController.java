@@ -198,12 +198,12 @@ public class LibrarianController {
                 LocalDate localDate1 = LocalDate.now();
                 LocalDate localDate = LocalDate.parse(localdateStr);  // localdate converter
 
-                long finesDay = DAYS.between(localDate1,localDate) -2;
+                long finesDay = DAYS.between(localDate1,localDate) ;
                 System.out.println(finesDay);
 
                 fines = fines_per_day*finesDay;
                 System.out.println("FINE AMMount " + fines);
-                fineShow.setText("Fine amount" + String.valueOf(fines) + " TK");  // to show fine ammount in label
+                fineShow.setText("Fine amount - " + String.valueOf(fines) + " TK");  // to show fine ammount in label
             }
         }
         catch (SQLException e){
