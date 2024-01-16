@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
@@ -18,7 +19,7 @@
             <Font name="DejaVu Sans Mono Bold" size="13.0" />
          </font>
       </Label>
-      <Pane layoutX="-3.0" layoutY="549.0" prefHeight="197.0" prefWidth="1243.0" style="-fx-background-color: yellow;">
+      <Pane layoutX="-3.0" layoutY="557.0" prefHeight="189.0" prefWidth="1243.0" style="-fx-background-color: none;">
          <children>
             <Label fx:id="bookLabel" layoutX="35.0" layoutY="121.0" prefHeight="71.0" prefWidth="220.0" style="-fx-background-color: 0;" text="36+ books">
                <font>
@@ -88,9 +89,14 @@
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TextField fx:id="employeeID" layoutX="472.0" layoutY="151.0" prefHeight="48.0" prefWidth="290.0" promptText="Employee mail" />
-                        <TextField fx:id="emppassword" layoutX="472.0" layoutY="207.0" prefHeight="48.0" prefWidth="290.0" promptText="password" />
-                        <Button layoutX="472.0" layoutY="262.0" mnemonicParsing="false" onAction="#onLibraianLogin" prefHeight="48.0" prefWidth="290.0" style="-fx-background-color: black;" text="Librarian login" textFill="WHITE" />
+                        <TextField fx:id="employeeID" layoutX="434.0" layoutY="171.0" prefHeight="48.0" prefWidth="362.0" promptText="Employee mail" />
+                        <TextField fx:id="emppassword" layoutX="434.0" layoutY="231.0" prefHeight="48.0" prefWidth="362.0" promptText="password" />
+                        <Button layoutX="434.0" layoutY="287.0" mnemonicParsing="false" onAction="#onLibraianLogin" prefHeight="48.0" prefWidth="363.0" style="-fx-background-color: #da902e;" text="Librarian login" />
+                        <ImageView fitHeight="107.0" fitWidth="107.0" layoutX="564.0" layoutY="51.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icons/avatar.png" />
+                           </image>
+                        </ImageView>
                      </children>
                   </AnchorPane>
                </content>
@@ -99,9 +105,17 @@
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TextField fx:id="adminuserF" layoutX="478.0" layoutY="146.0" prefHeight="48.0" prefWidth="311.0" promptText="Enter admin mail" style="-fx-background-radius: 0;" />
-                        <TextField fx:id="adminpassF" layoutX="478.0" layoutY="219.0" prefHeight="49.0" prefWidth="311.0" promptText="password" style="-fx-background-radius: 0;" />
-                        <Button layoutX="478.0" layoutY="285.0" mnemonicParsing="false" onAction="#adminLogin" prefHeight="41.0" prefWidth="311.0" style="-fx-background-radius: 0; -fx-background-color: black;" text="Admin login" textFill="WHITE" />
+                        <TextField fx:id="adminuserF" alignment="CENTER" layoutX="457.0" layoutY="186.0" prefHeight="48.0" prefWidth="354.0" promptText="Enter admin mail" style="-fx-background-radius: 0;">
+                           <cursor>
+                              <Cursor fx:constant="NONE" />
+                           </cursor></TextField>
+                        <TextField fx:id="adminpassF" alignment="CENTER" layoutX="457.0" layoutY="246.0" prefHeight="48.0" prefWidth="355.0" promptText="Admin password" style="-fx-background-radius: 0;" />
+                        <Button layoutX="456.0" layoutY="305.0" mnemonicParsing="false" onAction="#adminLogin" prefHeight="49.0" prefWidth="356.0" style="-fx-background-radius: 0; -fx-background-color: #a772f2;" text="Admin login" textFill="WHITE" />
+                        <ImageView fitHeight="137.0" fitWidth="107.0" layoutX="581.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icons/software-engineer.png" />
+                           </image>
+                        </ImageView>
                      </children>
                   </AnchorPane>
                </content>

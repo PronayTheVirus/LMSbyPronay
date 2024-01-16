@@ -14,13 +14,13 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="797.0" prefWidth="1234.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.exmple.lmsfinalproject.BookManagementController">
    <children>
-      <Label fx:id="outputLabel" layoutX="399.0" layoutY="776.0" prefHeight="18.0" prefWidth="225.0" text="Label" />
+      <Label fx:id="outputLabel" layoutX="371.0" layoutY="765.0" prefHeight="18.0" prefWidth="225.0" text="output log" />
       <Label fx:id="buildLog1" contentDisplay="CENTER" layoutX="-7.0" prefHeight="84.0" prefWidth="1262.0" style="-fx-background-color: #333333;" text="                               TINGTING Library" textFill="#ffd633">
          <font>
             <Font name="Noto Sans Bengali Bold" size="51.0" />
          </font>
       </Label>
-      <TabPane layoutY="84.0" prefHeight="691.0" prefWidth="1234.0" tabClosingPolicy="UNAVAILABLE">
+      <TabPane layoutY="84.0" prefHeight="681.0" prefWidth="1234.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
           <Tab text="Add books">
             <content>
@@ -35,10 +35,10 @@
                         <TableView fx:id="bookTableView" layoutY="391.0" prefHeight="269.0" prefWidth="1242.0">
                            <columns>
                               <TableColumn fx:id="idCol" prefWidth="75.0" text="#id" />
-                              <TableColumn fx:id="nameCol" prefWidth="319.0" text="Book name" />
-                              <TableColumn fx:id="authorCol" prefWidth="245.0" text="Author name" />
-                              <TableColumn fx:id="quantityCol" prefWidth="69.0" text="quantity" />
-                              <TableColumn fx:id="locationCol" prefWidth="136.0" text="book location" />
+                              <TableColumn fx:id="nameCol" prefWidth="588.0" text="Book name" />
+                              <TableColumn fx:id="authorCol" prefWidth="251.0" text="Author name" />
+                              <TableColumn fx:id="quantityCol" prefWidth="105.0" text="quantity" />
+                              <TableColumn fx:id="locationCol" prefWidth="222.0" text="book location" />
                            </columns>
                         </TableView>
                         <ImageView fitHeight="84.0" fitWidth="78.0" layoutX="556.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
@@ -50,7 +50,7 @@
                   </AnchorPane>
             </content>
           </Tab>
-            <Tab text="Untitled Tab 2">
+            <Tab text="Delete a book">
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
@@ -65,16 +65,30 @@
                   </AnchorPane>
                </content>
             </Tab>
-            <Tab text="Untitled Tab 2">
+            <Tab text="Update a book">
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TextField layoutX="69.0" layoutY="15.0" prefHeight="26.0" prefWidth="329.0" promptText="Book id" />
-                        <TextField layoutX="148.0" layoutY="40.0" prefHeight="26.0" prefWidth="329.0" promptText="Book name" />
-                        <TextField layoutX="107.0" layoutY="82.0" prefHeight="26.0" prefWidth="329.0" promptText="Author name" />
-                        <TextField layoutX="110.0" layoutY="131.0" prefHeight="26.0" prefWidth="329.0" promptText="quantity" />
-                        <TextField layoutX="111.0" layoutY="159.0" prefHeight="26.0" prefWidth="329.0" promptText="Book loation" />
-                        <Button layoutX="198.0" layoutY="196.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="329.0" style="-fx-background-color: purple;" text="Confirm and update book" textFill="WHITE" />
+                        <TextField layoutX="173.0" layoutY="182.0" prefHeight="40.0" prefWidth="329.0" promptText="Old serial no" />
+                        <TextField layoutX="537.0" layoutY="233.0" prefHeight="41.0" prefWidth="329.0" promptText="Book name" />
+                        <TextField layoutX="537.0" layoutY="333.0" prefHeight="40.0" prefWidth="329.0" promptText="Author name" />
+                        <TextField layoutX="537.0" layoutY="284.0" prefHeight="42.0" prefWidth="329.0" promptText="quantity" />
+                        <TextField layoutX="537.0" layoutY="382.0" prefHeight="42.0" prefWidth="329.0" promptText="Book loation" />
+                        <Button layoutX="896.0" layoutY="232.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="164.0" style="-fx-background-color: #496f7c;" text="Update name" textFill="WHITE" />
+                        <ImageView fitHeight="138.0" fitWidth="125.0" layoutX="492.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icons/stock-chart.png" />
+                           </image>
+                        </ImageView>
+                        <TextField layoutX="537.0" layoutY="182.0" prefHeight="40.0" prefWidth="329.0" promptText="New id / serial no" />
+                        <TextField layoutX="173.0" layoutY="233.0" prefHeight="40.0" prefWidth="329.0" promptText="Book id" />
+                        <Button layoutX="896.0" layoutY="181.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="164.0" style="-fx-background-color: #496f7c;" text="Update id" textFill="WHITE" />
+                        <TextField layoutX="173.0" layoutY="285.0" prefHeight="40.0" prefWidth="329.0" promptText="Book id" />
+                        <TextField layoutX="173.0" layoutY="333.0" prefHeight="40.0" prefWidth="329.0" promptText="Book id" />
+                        <Button layoutX="896.0" layoutY="284.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="164.0" style="-fx-background-color: #496f7c;" text="Update quantity" textFill="WHITE" />
+                        <Button layoutX="896.0" layoutY="332.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="164.0" style="-fx-background-color: #496f7c;" text="Update author" textFill="WHITE" />
+                        <TextField layoutX="173.0" layoutY="383.0" prefHeight="40.0" prefWidth="329.0" promptText="Book id" />
+                        <Button layoutX="896.0" layoutY="382.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="164.0" style="-fx-background-color: #496f7c;" text="Update location" textFill="WHITE" />
                      </children>
                   </AnchorPane>
                </content>
