@@ -228,4 +228,56 @@ public class LibrarianController {
     }
 
 
+    // From here this one is to extend days
+    @FXML
+    private TextField idField;
+    @FXML
+    private TextField dayfield;
+    public void extendFines(ActionEvent event){
+        int id = Integer.parseInt(idField.getText());
+        int days = Integer.parseInt(dayfield.getText());
+
+//        update issuebook set fines = 2 where bookid =5
+        // to get the return date
+        try{
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/lms", "root", "password");
+            System.out.println("Connection established");
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM issuebook WHERE id ='" + id + "';");
+            while (resultSet.next()) {
+                String localdateStr = resultSet.getString("returndate");
+                System.out.println("Current date " + localdateStr);
+
+
+                // converting string date to localtime
+                LocalDate localDate = LocalDate.parse(localdateStr);  // String to localdate converter
+                System.out.println("After parsing " + localDate);
+                LocalDate local = localDate.plusDays(days);
+                System.out.println("After adding " + local);
+                String target = local.toString();
+                System.out.println("Before passing it into section "+ target);
+                extendDate(id, target);
+            }
+        }
+        catch (SQLException e){
+            System.out.println("SQL exception occured");
+        }
+
+    }
+    public void extendDate(int id, String localdate){
+        try{
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/lms", "root", "password");
+            System.out.println("Connection established");
+            Statement statement = connection.createStatement();
+            String query = "update issuebook set returndate ='" + localdate +"' where id =" + id  + ";";
+            System.out.println(query);
+            statement.execute(query);
+        }
+        catch (SQLException e){
+            System.out.println("SQL exception occured");
+            e.printStackTrace();
+        }
+    }
+
+
 }
