@@ -61,6 +61,8 @@ public class HelloController implements Initializable {
     private TextField emppassword;
     @FXML
     private Label buildLog;
+
+    @FXML
     public void onLibraianLogin(ActionEvent event){  // librarian login trigger button
         String mail = employeeID.getText();
         String password = emppassword.getText();
@@ -80,7 +82,7 @@ public class HelloController implements Initializable {
 
                 if(Objects.equals(id, password)){
                     System.out.println("Verified librarian");
-                    bookLabel.setText("hi");
+//                    bookLabel.setText("TEST");
                     HelloApplication.changeScene("librarian");  // passing it into change scene section
                 }
                 else {
@@ -105,6 +107,7 @@ public class HelloController implements Initializable {
     public void gotoBookManagement(ActionEvent event){
         HelloApplication.changeScene("bookmanagementsection");
     }
+    // safe delete it, check it before doing so
 
 
 //    // delete this section right here till ===========
