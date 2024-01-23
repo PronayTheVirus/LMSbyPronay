@@ -110,7 +110,7 @@ public class HelloController implements Initializable {
     // safe delete it, check it before doing so
 
 
-//    // delete this section right here till ===========
+//    // delete this section right here  ===========
 //    public void addBook(ActionEvent event) {
 //    }
 //    public void setDeleteButton(ActionEvent event){
@@ -140,9 +140,11 @@ public class HelloController implements Initializable {
                 /* this section is to verify the data with user input */
                 if(Objects.equals(id, stdPass)){
                     System.out.println("Verified Student");
+                    StudentController controller = new StudentController();
+                    controller.passID(Integer.parseInt(String.valueOf(stdId)));
 
                     HelloApplication.changeScene("isStudent");
-                    StudentController.passID(stdId);  ;// passing it into change scene section
+                     ;// passing it into change scene section
                 }
                 else {
                     System.out.println("Didn't match");
@@ -159,6 +161,8 @@ public class HelloController implements Initializable {
 
 // to view book count upon start of the project
     @FXML private Label memberLabel;
+    @FXML private Label lentLabel;
+    @FXML private Label libLabel;
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         try{
@@ -189,6 +193,45 @@ public class HelloController implements Initializable {
                 String id = resultSet.getString("id");
 
                 memberLabel.setText(id + " members");
+                System.out.println(id);
+
+            }
+        }
+        catch (SQLException e){
+            System.out.println("SQL exception occured");
+        }
+
+        // would show librarian count
+        try{
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/lms", "root", "password");
+            System.out.println("Connection established");
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery("select count(*) as email from librarian;");
+
+            while (resultSet.next()) {
+                String id = resultSet.getString("email");
+
+                libLabel.setText(id + " librarians");
+                System.out.println(id);
+
+            }
+        }
+        catch (SQLException e){
+            System.out.println("SQL exception occured");
+        }
+
+
+        // would show total times books were lent
+        try{
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/lms", "root", "password");
+            System.out.println("Connection established");
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery("select count(*) as id from issuebookhist;");
+
+            while (resultSet.next()) {
+                String id = resultSet.getString("id");
+
+                lentLabel.setText(id + " books lent");
                 System.out.println(id);
 
             }

@@ -26,22 +26,22 @@
                   <Font size="34.0" />
                </font>
             </Label>
-            <ImageView fitHeight="107.0" fitWidth="116.0" layoutX="319.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="107.0" fitWidth="116.0" layoutX="371.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../icons/reading-book.png" />
                </image>
             </ImageView>
-            <Label fx:id="memberLabel" layoutX="286.0" layoutY="132.0" text="67+ members">
+            <Label fx:id="memberLabel" layoutX="314.0" layoutY="135.0" text="67+ members">
                <font>
                   <Font size="34.0" />
                </font>
             </Label>
-            <ImageView fitHeight="115.0" fitWidth="107.0" layoutX="634.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="115.0" fitWidth="107.0" layoutX="702.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../icons/elearning.png" />
                </image>
             </ImageView>
-            <Label fx:id="lentLabel" layoutX="566.0" layoutY="132.0" prefHeight="48.0" prefWidth="311.0" text="100+ books lent">
+            <Label fx:id="lentLabel" layoutX="633.0" layoutY="133.0" prefHeight="48.0" prefWidth="311.0" text="100+ books lent">
                <font>
                   <Font size="33.0" />
                </font>
@@ -51,6 +51,16 @@
                   <Image url="@../icons/library%20(1).png" />
                </image>
             </ImageView>
+            <ImageView fitHeight="121.0" fitWidth="125.0" layoutX="1013.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icons/librarian.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="libLabel" layoutX="963.0" layoutY="132.0" prefHeight="48.0" prefWidth="311.0" text="20 Librarians">
+               <font>
+                  <Font size="33.0" />
+               </font>
+            </Label>
          </children>
       </Pane>
       <TabPane layoutX="-1.0" layoutY="75.0" prefHeight="469.0" prefWidth="1234.0" rotateGraphic="true" tabClosingPolicy="UNAVAILABLE">
@@ -60,16 +70,21 @@
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="444.0" prefWidth="598.0">
                      <children>
                         <Pane prefHeight="368.0" prefWidth="173.0" />
-                        <TextField fx:id="studentName" layoutX="466.0" layoutY="60.0" prefHeight="41.0" prefWidth="290.0" promptText="Student name" style="-fx-background-radius: 0;">
+                        <TextField fx:id="studentName" alignment="CENTER" layoutX="452.0" layoutY="151.0" prefHeight="41.0" prefWidth="333.0" promptText="Student name" style="-fx-background-radius: 0;">
                            <font>
                               <Font name="DejaVu Sans" size="13.0" />
                            </font>
                         </TextField>
-                        <TextField fx:id="studentID" layoutX="466.0" layoutY="120.0" prefHeight="40.0" prefWidth="290.0" promptText="Student Code" />
-                        <TextField fx:id="studentDepartment" layoutX="466.0" layoutY="178.0" prefHeight="41.0" prefWidth="290.0" promptText="department" />
-                        <TextField fx:id="studentBatch" layoutX="466.0" layoutY="234.0" prefHeight="37.0" prefWidth="290.0" promptText="batch" />
-                        <TextField fx:id="studentPassword" layoutX="466.0" layoutY="285.0" prefHeight="38.0" prefWidth="290.0" promptText="password" />
-                        <Button fx:id="createAccountButton" layoutX="466.0" layoutY="332.0" mnemonicParsing="false" onAction="#onCreateAccountClick" prefHeight="37.0" prefWidth="290.0" style="-fx-background-color: black;" text="Create an account" textFill="WHITE" />
+                        <TextField fx:id="studentID" alignment="CENTER" layoutX="452.0" layoutY="199.0" prefHeight="40.0" prefWidth="333.0" promptText="Student Code" />
+                        <TextField fx:id="studentDepartment" alignment="CENTER" layoutX="451.0" layoutY="247.0" prefHeight="42.0" prefWidth="332.0" promptText="department" />
+                        <TextField fx:id="studentBatch" alignment="CENTER" layoutX="452.0" layoutY="294.0" prefHeight="42.0" prefWidth="332.0" promptText="batch" />
+                        <TextField fx:id="studentPassword" alignment="CENTER" layoutX="452.0" layoutY="342.0" prefHeight="38.0" prefWidth="331.0" promptText="password" />
+                        <Button fx:id="createAccountButton" layoutX="452.0" layoutY="387.0" mnemonicParsing="false" onAction="#onCreateAccountClick" prefHeight="37.0" prefWidth="331.0" style="-fx-background-color: #4cbad8;" text="Create an account" />
+                        <ImageView fitHeight="121.0" fitWidth="121.0" layoutX="558.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icons/user.png" />
+                           </image>
+                        </ImageView>
                      </children>
                   </AnchorPane>
             </content>
@@ -78,9 +93,14 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TextField fx:id="studentIDfield" layoutX="472.0" layoutY="177.0" prefHeight="42.0" prefWidth="290.0" promptText="Student ID" />
-                        <TextField fx:id="passSTDfield" layoutX="473.0" layoutY="233.0" prefHeight="40.0" prefWidth="290.0" promptText="password" />
-                        <Button layoutX="474.0" layoutY="286.0" mnemonicParsing="false" onAction="#isStudent" prefHeight="42.0" prefWidth="289.0" style="-fx-background-color: black;" text="login" textFill="WHITE" />
+                        <TextField fx:id="studentIDfield" layoutX="443.0" layoutY="183.0" prefHeight="42.0" prefWidth="349.0" promptText="Student ID" />
+                        <TextField fx:id="passSTDfield" layoutX="443.0" layoutY="240.0" prefHeight="40.0" prefWidth="348.0" promptText="password" />
+                        <Button layoutX="445.0" layoutY="298.0" mnemonicParsing="false" onAction="#isStudent" prefHeight="42.0" prefWidth="346.0" style="-fx-background-color: black;" text="login" textFill="WHITE" />
+                        <ImageView fitHeight="121.0" fitWidth="113.0" layoutX="561.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icons/profile.png" />
+                           </image>
+                        </ImageView>
                      </children>
                   </AnchorPane>
             </content>

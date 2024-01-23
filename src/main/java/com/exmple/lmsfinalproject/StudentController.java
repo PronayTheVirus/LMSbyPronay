@@ -17,7 +17,7 @@ import java.sql.*;
 import java.util.Collection;
 import java.util.Objects;
 import java.util.ResourceBundle;
-public class StudentController {
+public class StudentController implements Initializable {
     @FXML
     private Button gotobutton;
     public void gotoDash(ActionEvent event){
@@ -31,27 +31,77 @@ public class StudentController {
         System.out.println(studentID);
     }
 
-    /* this section is for requesting book from the librarian*/
-    @FXML TextField bookIdField;
 
-    public void onClickSendBookLendReq(ActionEvent event){
-        int bookid = Integer.parseInt(bookIdField.getText());
+//        LibrarianController.finesCalculator(studentID);
+    // student view section, current books, lend date, return date etc
 
-       // to put data into lendreq
+    @FXML
+    private Label name;
+    @FXML
+    private Label author;
+    @FXML
+    private Label ldate;
+    @FXML
+    private Label rdate;
+//    @FXML
+//    private Label name;
+    @FXML
+    private Label finesL;
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        System.out.println("entered");
+        // will show things on startup
         try{
             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/lms", "root", "password");
             System.out.println("Connection established");
             Statement statement = connection.createStatement();
-            String query = "insert into lendreq values(" + studentID + "," + bookid + ");" ;
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM issuebook WHERE id ='" + studentID + "';");
+            while (resultSet.next()) {
+                String bookName = resultSet.getString("bookname");
+                String authorL = resultSet.getString("author");
+                String lenddate = resultSet.getString("lenddate");
+                String returnDate = resultSet.getString("returnDate");
+                LibrarianController librarianController = new LibrarianController();
+                long fines = librarianController.finesCalculator(studentID);
+
+                System.out.println(bookName + " " + authorL + " " + lenddate + " " + returnDate +" " + fines);
+                System.out.println(studentID);
+
+                // to show data
+                name.setText("Book name: " + bookName);
+                author.setText("Author: " + authorL);
+                ldate.setText("Lend date: " + lenddate);
+                rdate.setText("Return date: " +returnDate);
+                finesL.setText("Fine amount: " + String.valueOf(fines));
+            }
+        }
+        catch (SQLException e){
+            System.out.println("SQL exception occured");
+        }
+    }
+
+    // send note to librarian
+    // to put data into database
+    @FXML
+    private TextArea note;
+    @FXML
+    private Button send;
+
+    public void clickSend(ActionEvent event){
+        String text = note.getText();
+        int id = studentID;
+        try{
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/lms", "root", "password");
+            System.out.println("Connection established");
+            Statement statement = connection.createStatement();
+            String query = "insert into note values(" + id + ",'" + text + "');";
             statement.execute(query);
-            System.out.println("DATA INSERTED");
         }
         catch (SQLException e){
             System.out.println("SQL exception occured");
             e.printStackTrace();
         }
-
-
     }
-
 }
+
+

@@ -6,6 +6,7 @@
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -172,6 +173,18 @@
                               <TableColumn prefWidth="187.0" text="Return date" />
                           </columns>
                         </TableView>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Show messages">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button fx:id="load" layoutX="455.0" layoutY="232.0" mnemonicParsing="false" onAction="#onLoadClick" prefHeight="39.0" prefWidth="331.0" style="-fx-background-color: #5865f2;" text="Load messages" textFill="WHITE" />
+                        <Button layoutX="455.0" layoutY="341.0" mnemonicParsing="false" onAction="#showNOTE" prefHeight="39.0" prefWidth="331.0" style="-fx-background-color: #93e7f8;" text="Show messages" />
+                        <TextField fx:id="ids" layoutX="455.0" layoutY="298.0" prefHeight="42.0" prefWidth="332.0" />
+                        <TextArea fx:id="textField" layoutX="34.0" layoutY="398.0" prefHeight="271.0" prefWidth="1172.0" />
                      </children>
                   </AnchorPane>
                </content>

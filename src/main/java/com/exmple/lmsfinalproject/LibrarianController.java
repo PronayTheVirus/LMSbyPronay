@@ -6,6 +6,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 
 import java.net.URL;
+import java.nio.file.attribute.AttributeView;
 import java.sql.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -198,7 +199,8 @@ public class LibrarianController {
                 LocalDate localDate1 = LocalDate.now();
                 LocalDate localDate = LocalDate.parse(localdateStr);  // localdate converter
 
-                long finesDay = DAYS.between(localDate1,localDate) ;
+                // to find days in between
+                 long finesDay = DAYS.between(localDate1,localDate) ;
                 System.out.println(finesDay);
 
                 // to check for past dates only
@@ -211,7 +213,7 @@ public class LibrarianController {
 
 
                 System.out.println("FINE AMMount " + fines);
-                fineShow.setText("Fine amount - " + String.valueOf(fines) + " TK");  // to show fine ammount in label
+
             }
         }
         catch (SQLException e){
@@ -231,7 +233,8 @@ public class LibrarianController {
 
         // in case the student doesn't exist
         fineShow.setText("Couldn't found any match with target");
-        finesCalculator(id); // fine calculator call
+        long tk = finesCalculator(id); // fine calculator call
+        fineShow.setText("Fine amount: " + String.valueOf(tk) + " TK");  // to show fine ammount in label
 
     }
 
@@ -287,7 +290,52 @@ public class LibrarianController {
         }
     }
 
-    /// there is a bug in fine amount system, fix it
+    /// this is to load person ids who sent messages
+    // and show the librarian
+    @FXML
+    private TextArea textField;
+
+    String str = "";
+    public void onLoadClick(ActionEvent event){
+        try{
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/lms", "root", "password");
+            System.out.println("Connection established");
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM note;");
+            while (resultSet.next()) {
+                str = str + resultSet.getString("id");
+                str = str + ", ";
+                System.out.println(str);
+            }
+            textField.setText("You have unread messages from " + str);
+        }
+        catch (SQLException e){
+            System.out.println("SQL exception occured");
+        }
+    }
+
+    // this is to show the messages to the librarian, librarian will search by id
+    @FXML
+    private TextField ids;
+    public void showNOTE(ActionEvent event){
+        int id = Integer.parseInt(ids.getText());
+        try{
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/lms", "root", "password");
+            System.out.println("Connection established");
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM note WHERE id ='" + id + "';");
+            while (resultSet.next()) {
+                String note = resultSet.getString("note");
+                textField.setText(note);
+            }
+        }
+        catch (SQLException e){
+            System.out.println("SQL exception occured");
+        }
+
+    }
+
+    // this section is to delete notes after the librarian reads it
 
 
 }
