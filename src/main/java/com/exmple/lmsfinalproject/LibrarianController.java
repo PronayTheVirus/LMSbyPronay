@@ -201,7 +201,15 @@ public class LibrarianController {
                 long finesDay = DAYS.between(localDate1,localDate) ;
                 System.out.println(finesDay);
 
-                fines = fines_per_day*finesDay;
+                // to check for past dates only
+                if(localDate1.isAfter(localDate)){
+                    fines = fines_per_day*finesDay*(-1);
+                }
+                else {
+                    fines = 0;
+                }
+
+
                 System.out.println("FINE AMMount " + fines);
                 fineShow.setText("Fine amount - " + String.valueOf(fines) + " TK");  // to show fine ammount in label
             }
@@ -278,6 +286,8 @@ public class LibrarianController {
             e.printStackTrace();
         }
     }
+
+    /// there is a bug in fine amount system, fix it
 
 
 }
