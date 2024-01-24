@@ -1,5 +1,11 @@
 package com.exmple.lmsfinalproject;
 
+import javafx.beans.Observable;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleLongProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -11,14 +17,13 @@ import java.sql.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
-import java.util.Locale;
-import java.util.Objects;
-import java.util.ResourceBundle;
+import java.util.*;
 
 import static java.time.temporal.ChronoUnit.DAYS;
 
-public class LibrarianController {
-    int fines_per_day = 10;
+public class LibrarianController implements Initializable {
+    AdminController adminController = new AdminController();
+    int fines_per_day = adminController.setFineAmount();
 
     public int getFines_per_day() {
         return fines_per_day;
@@ -355,4 +360,69 @@ public class LibrarianController {
          e.printStackTrace();
      }
  }
+
+ // this is to show who lent books in a table
+    // view issued book section
+    @FXML
+    private TableColumn<Lent, Number> idCol;
+    @FXML
+    private TableColumn<Lent, String> studentCol;
+    @FXML
+    private TableColumn<Lent, String> bookNameCol;
+    @FXML
+    private TableColumn<Lent, Number> bookidCol;
+    @FXML
+    private TableColumn<Lent, String> lendDateCol;
+    @FXML
+    private TableColumn<Lent, String> returnDateCol;
+    @FXML
+    private TableColumn<Lent, Number> finesCol;
+    @FXML
+    private TableView<Lent> tableView;
+
+
+    ObservableList<Lent> lentObservableList;
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        List<Lent> lentList = list();
+        idCol.setCellValueFactory(c-> new SimpleIntegerProperty(c.getValue().getStudentID()));
+        studentCol.setCellValueFactory(c-> new SimpleStringProperty(c.getValue().getName()));
+        returnDateCol.setCellValueFactory(c-> new SimpleStringProperty(c.getValue().getReturnDate()));
+        lendDateCol.setCellValueFactory(c-> new SimpleStringProperty(c.getValue().getLendDate()));
+        finesCol.setCellValueFactory(c-> new SimpleLongProperty(c.getValue().getFines()));
+        bookidCol.setCellValueFactory(c-> new SimpleIntegerProperty(c.getValue().getBookid()));
+        bookNameCol.setCellValueFactory(c-> new SimpleStringProperty(c.getValue().getBookName()));
+
+        lentObservableList = FXCollections.observableArrayList();
+        lentObservableList.addAll(lentList);
+        tableView.setItems(lentObservableList);
+    }
+
+    // to get data from the Database (above section)
+
+    private List<Lent> list() {
+        List <Lent> lentList = new ArrayList<>();
+        try {
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/lms", "root", "password");
+            Statement statement = connection.createStatement();
+            String query ="Select * from issuebook";
+            ResultSet resultSet = statement.executeQuery(query);
+            while (resultSet.next()){
+                int id = resultSet.getInt("id");
+                String studentName = resultSet.getString("studentName");
+                String bookName = resultSet.getString("bookname");
+                int bookid = resultSet.getInt("bookid");
+                String lendDate = resultSet.getString("lenddate");
+                String returnDate = resultSet.getString("returndate");
+                long fines = finesCalculator(id);
+
+                Lent lent = new Lent(id, studentName, bookName, bookid, lendDate, returnDate, fines);
+                lentList.add(lent);
+            }
+        }
+        catch (SQLException exception){
+            System.out.println("Failed to get data from database");
+        }
+        return lentList;
+    }
 }

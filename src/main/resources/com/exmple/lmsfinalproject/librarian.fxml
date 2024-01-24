@@ -159,15 +159,15 @@
                               <Image url="@../icons/read.png" />
                            </image>
                         </ImageView>
-                        <TableView layoutY="191.0" prefHeight="479.0" prefWidth="1234.0">
+                        <TableView fx:id="tableView" layoutY="191.0" prefHeight="479.0" prefWidth="1234.0">
                           <columns>
-                            <TableColumn prefWidth="75.0" text="Student ID" />
-                            <TableColumn prefWidth="241.0" text="Student Name" />
-                              <TableColumn prefWidth="377.0" text="Book assigned" />
-                              <TableColumn prefWidth="123.0" text="Book id" />
-                              <TableColumn minWidth="0.0" prefWidth="116.0" text="lend date" />
-                              <TableColumn prefWidth="179.0" text="Return Date" />
-                              <TableColumn prefWidth="117.0" text="Fines" />
+                            <TableColumn fx:id="idCol" prefWidth="75.0" text="Student ID" />
+                            <TableColumn fx:id="studentCol" prefWidth="241.0" text="Student Name" />
+                              <TableColumn fx:id="bookNameCol" prefWidth="377.0" text="Book assigned" />
+                              <TableColumn fx:id="bookidCol" prefWidth="123.0" text="Book id" />
+                              <TableColumn fx:id="lendDateCol" minWidth="0.0" prefWidth="116.0" text="lend date" />
+                              <TableColumn fx:id="returnDateCol" prefWidth="179.0" text="Return Date" />
+                              <TableColumn fx:id="finesCol" prefWidth="117.0" text="Fines" />
                           </columns>
                         </TableView>
                      </children>

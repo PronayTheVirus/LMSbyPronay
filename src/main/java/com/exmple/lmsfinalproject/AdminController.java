@@ -226,4 +226,48 @@ public class AdminController {
         HelloApplication.changeScene("dashboard");
     }
 
+    // to update fines
+    @FXML
+    private TextField fineField;
+    @FXML
+    private void updateFine(ActionEvent event){
+        long fines = Integer.parseInt(fineField.getText());
+        try{
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/lms", "root", "password");
+            System.out.println("Connection established");
+            Statement statement = connection.createStatement();
+            String query = "delete from fine";
+            statement.execute(query);
+            query = "insert into fine values(" + fines +");";
+            statement.execute(query);
+
+            setFineAmount();
+            output.setText("Fines set to " + fines + " per day!");
+        }
+        catch (SQLException e){
+            System.out.println("SQL exception occured");
+            e.printStackTrace();
+        }
+    }
+
+
+    // set fine amount after fine update
+    // to set fine amount from the database and set it. which is on Librarian controller
+    public int setFineAmount(){
+        try {
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/lms", "root", "password");
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery("select * from fine");
+
+            while (resultSet.next()) {
+                int fines = resultSet.getInt("tk");
+                return fines;
+            }
+        } catch (SQLException exception) {
+            System.out.println("SQL exception occured");
+        }
+        return -1;
+    }
+
+
 }

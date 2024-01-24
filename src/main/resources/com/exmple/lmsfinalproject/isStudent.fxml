@@ -34,27 +34,27 @@
                               <Font name="Monospaced Regular" size="19.0" />
                            </font>
                         </Label>
-                        <Label fx:id="name" layoutX="517.0" layoutY="179.0" prefHeight="46.0" prefWidth="677.0" text="Book name:" textFill="#2702e3">
+                        <Label fx:id="name" layoutX="517.0" layoutY="179.0" prefHeight="46.0" prefWidth="677.0" text="Book name: No assigned Books" textFill="#2702e3">
                            <font>
                               <Font name="Monospaced Regular" size="13.0" />
                            </font>
                         </Label>
-                        <Label fx:id="author" layoutX="517.0" layoutY="202.0" prefHeight="46.0" prefWidth="705.0" text="Author:" textFill="#2702e3">
+                        <Label fx:id="author" layoutX="517.0" layoutY="202.0" prefHeight="46.0" prefWidth="705.0" text="Author: NULL" textFill="#2702e3">
                            <font>
                               <Font name="Monospaced Regular" size="13.0" />
                            </font>
                         </Label>
-                        <Label fx:id="ldate" layoutX="517.0" layoutY="225.0" prefHeight="46.0" prefWidth="400.0" text="Lend date:" textFill="#2702e3">
+                        <Label fx:id="ldate" layoutX="517.0" layoutY="225.0" prefHeight="46.0" prefWidth="400.0" text="Lend date: NULL" textFill="#2702e3">
                            <font>
                               <Font name="Monospaced Regular" size="13.0" />
                            </font>
                         </Label>
-                        <Label fx:id="rdate" layoutX="517.0" layoutY="248.0" prefHeight="46.0" prefWidth="570.0" text="Return date: " textFill="#2702e3">
+                        <Label fx:id="rdate" layoutX="517.0" layoutY="248.0" prefHeight="46.0" prefWidth="570.0" text="Return date:  NULL" textFill="#2702e3">
                            <font>
                               <Font name="Monospaced Regular" size="13.0" />
                            </font>
                         </Label>
-                        <Label fx:id="finesL" layoutX="517.0" layoutY="271.0" prefHeight="46.0" prefWidth="438.0" text="Fine ammount:" textFill="#2702e3">
+                        <Label fx:id="finesL" layoutX="517.0" layoutY="271.0" prefHeight="46.0" prefWidth="438.0" text="Fine amount: 0" textFill="#2702e3">
                            <font>
                               <Font name="Monospaced Regular" size="13.0" />
                            </font>

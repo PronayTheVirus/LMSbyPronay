@@ -12,7 +12,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="797.0" prefWidth="1234.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.exmple.lmsfinalproject.AdminController">
    <children>
-      <Label prefHeight="83.0" prefWidth="1241.0" style="-fx-background-color: #333333;" text="                                  TINGTING Library" textFill="#ffdb11">
+      <Label contentDisplay="CENTER" prefHeight="83.0" prefWidth="1241.0" style="-fx-background-color: #333333;" text="                                  TINGTING Library" textFill="#ffdb11">
          <font>
             <Font name="FreeSans Bold" size="46.0" />
          </font>
@@ -56,6 +56,16 @@
                         <TextField fx:id="oldPassField" layoutX="443.0" layoutY="121.0" prefHeight="54.0" prefWidth="349.0" promptText="Enter old password" />
                         <TextField fx:id="newPassField" layoutX="443.0" layoutY="202.0" prefHeight="54.0" prefWidth="349.0" promptText="Enter new password" />
                         <Button layoutX="443.0" layoutY="277.0" mnemonicParsing="false" onAction="#setNewPass" prefHeight="54.0" prefWidth="349.0" style="-fx-background-color: black;" text="Commit changes" textFill="WHITE" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Update fine/day">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TextField fx:id="fineField" alignment="CENTER" layoutX="439.0" layoutY="277.0" prefHeight="46.0" prefWidth="356.0" promptText="Enter fine amount per day" />
+                        <Button layoutX="439.0" layoutY="331.0" mnemonicParsing="false" onAction="#updateFine" prefHeight="42.0" prefWidth="357.0" text="Update fines" />
                      </children>
                   </AnchorPane>
                </content>

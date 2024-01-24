@@ -201,6 +201,23 @@ public class HelloController implements Initializable {
             System.out.println("SQL exception occured");
         }
 
+            // set fine amount
+            // to set fine amount from the database and set it. which is on Librarian controller
+        LibrarianController librarianController = new LibrarianController();
+            try {
+                Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/lms", "root", "password");
+                Statement statement = connection.createStatement();
+                ResultSet resultSet = statement.executeQuery("select * from fine");
+
+                while (resultSet.next()) {
+                    int fines = resultSet.getInt("tk");
+                    librarianController.setFines_per_day(fines);
+                }
+            } catch (SQLException exception) {
+                System.out.println("SQL exception occured");
+            }
+
+
         // would show librarian count
         try{
             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/lms", "root", "password");
