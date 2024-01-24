@@ -1,19 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="797.0" prefWidth="1234.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="797.0" prefWidth="1234.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.exmple.lmsfinalproject.SearchController">
    <children>
-      <TextField layoutX="249.0" layoutY="83.0" prefHeight="26.0" prefWidth="716.0" />
-      <TableView layoutX="22.0" layoutY="135.0" prefHeight="628.0" prefWidth="1191.0">
+      <TextField fx:id="search" alignment="CENTER" layoutX="266.0" layoutY="254.0" prefHeight="39.0" prefWidth="716.0" promptText="Type book name to filter" />
+      <TableView fx:id="bookTableView" layoutX="14.0" layoutY="311.0" prefHeight="472.0" prefWidth="1191.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="C1" />
-          <TableColumn prefWidth="75.0" text="C2" />
+          <TableColumn fx:id="idColum" prefWidth="75.0" text="id" />
+          <TableColumn fx:id="nameCol" prefWidth="531.0" text="name" />
+            <TableColumn fx:id="authorCol" prefWidth="319.0" text="author" />
+            <TableColumn fx:id="quantityCol" prefWidth="110.0" text="quantity" />
+            <TableColumn fx:id="locationCol" prefWidth="155.0" text="location" />
         </columns>
       </TableView>
+      <Label fx:id="buildLog1" contentDisplay="CENTER" layoutX="-4.0" prefHeight="83.0" prefWidth="1243.0" style="-fx-background-color: #333333;" text="                               TINGTING Library" textFill="#ffd633">
+         <font>
+            <Font name="Noto Sans Bengali Bold" size="51.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="126.0" fitWidth="130.0" layoutX="547.0" layoutY="119.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../icons/seo.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="1046.0" layoutY="84.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="193.0" style="-fx-background-color: #69cdff; -fx-background-radius: none;" text="Go back" />
    </children>
 </AnchorPane>

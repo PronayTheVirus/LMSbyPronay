@@ -159,18 +159,15 @@
                               <Image url="@../icons/read.png" />
                            </image>
                         </ImageView>
-                        <Button layoutX="457.0" layoutY="186.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="265.0" style="-fx-background-color: #da4a54;" text="Load issued books">
-                           <font>
-                              <Font name="DejaVu Sans Mono Bold" size="13.0" />
-                           </font>
-                        </Button>
-                        <TableView layoutY="236.0" prefHeight="434.0" prefWidth="1234.0">
+                        <TableView layoutY="191.0" prefHeight="479.0" prefWidth="1234.0">
                           <columns>
                             <TableColumn prefWidth="75.0" text="Student ID" />
-                            <TableColumn prefWidth="302.0" text="Student Name" />
-                              <TableColumn prefWidth="479.0" text="Book assigned" />
-                              <TableColumn prefWidth="187.0" text="Book id" />
-                              <TableColumn prefWidth="187.0" text="Return date" />
+                            <TableColumn prefWidth="241.0" text="Student Name" />
+                              <TableColumn prefWidth="377.0" text="Book assigned" />
+                              <TableColumn prefWidth="123.0" text="Book id" />
+                              <TableColumn minWidth="0.0" prefWidth="116.0" text="lend date" />
+                              <TableColumn prefWidth="179.0" text="Return Date" />
+                              <TableColumn prefWidth="117.0" text="Fines" />
                           </columns>
                         </TableView>
                      </children>
