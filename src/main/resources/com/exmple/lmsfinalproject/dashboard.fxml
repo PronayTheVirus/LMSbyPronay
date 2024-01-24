@@ -95,7 +95,7 @@
                      <children>
                         <TextField fx:id="studentIDfield" layoutX="443.0" layoutY="183.0" prefHeight="42.0" prefWidth="349.0" promptText="Student ID" />
                         <TextField fx:id="passSTDfield" layoutX="443.0" layoutY="240.0" prefHeight="40.0" prefWidth="348.0" promptText="password" />
-                        <Button layoutX="445.0" layoutY="298.0" mnemonicParsing="false" onAction="#isStudent" prefHeight="42.0" prefWidth="346.0" style="-fx-background-color: black;" text="login" textFill="WHITE" />
+                        <Button layoutX="445.0" layoutY="298.0" mnemonicParsing="false" onAction="#isStudent" prefHeight="42.0" prefWidth="346.0" style="-fx-background-color: #5bc658;" text="login" textFill="#f2bfbf" />
                         <ImageView fitHeight="121.0" fitWidth="113.0" layoutX="561.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../icons/profile.png" />
@@ -142,7 +142,7 @@
             </Tab>
         </tabs>
       </TabPane>
-      <Label fx:id="buildLog1" contentDisplay="CENTER" layoutX="-3.0" layoutY="-8.0" prefHeight="83.0" prefWidth="1243.0" style="-fx-background-color: #333333;" text="                               TINGTING Library" textFill="#ffd633">
+      <Label fx:id="buildLog1" contentDisplay="CENTER" layoutX="-3.0" layoutY="-8.0" prefHeight="83.0" prefWidth="1243.0" style="-fx-background-color: #333333;" text="                               TINGTING Library" textFill="#ffca0c">
          <font>
             <Font name="Noto Sans Bengali Bold" size="51.0" />
          </font>

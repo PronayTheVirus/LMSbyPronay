@@ -326,7 +326,9 @@ public class LibrarianController {
             ResultSet resultSet = statement.executeQuery("SELECT * FROM note WHERE id ='" + id + "';");
             while (resultSet.next()) {
                 String note = resultSet.getString("note");
-                textField.setText(note);
+                str = "";
+                textField.setText("Message from " + id + "\n" + note);
+                deleteNote(id);
             }
         }
         catch (SQLException e){
@@ -336,6 +338,21 @@ public class LibrarianController {
     }
 
     // this section is to delete notes after the librarian reads it
+    // this function will take an int value which is id, and delete it from the database
 
-
+ public void deleteNote ( int id){
+     try{
+         Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/lms", "root", "password");
+         System.out.println("Connection established");
+         Statement statement = connection.createStatement();
+         String query = " delete  from note where id = " + id + ";";
+         System.out.println(query);
+         System.out.println("note deleted with id " + id);
+         statement.execute(query);
+     }
+     catch (SQLException e){
+         System.out.println("SQL exception occured");
+         e.printStackTrace();
+     }
+ }
 }
