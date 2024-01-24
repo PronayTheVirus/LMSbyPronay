@@ -425,4 +425,10 @@ public class LibrarianController implements Initializable {
         }
         return lentList;
     }
+    SearchController searchController = new SearchController();
+    public void gotoSearch(ActionEvent event){
+        searchController.isStudent(10);
+        HelloApplication.changeScene("searchBookSection");
+    }
+
 }

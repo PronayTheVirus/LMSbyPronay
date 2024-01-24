@@ -188,5 +188,6 @@
             </Tab>
         </tabs>
       </TabPane>
+      <Button layoutX="23.0" layoutY="29.0" mnemonicParsing="false" onAction="#gotoSearch" prefHeight="26.0" prefWidth="144.0" style="-fx-background-color: #5865f2; -fx-background-radius: none;" text="Search a book" textFill="WHITE" />
    </children>
 </AnchorPane>

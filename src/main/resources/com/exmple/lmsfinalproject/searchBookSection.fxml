@@ -32,6 +32,6 @@
             <Image url="@../icons/seo.png" />
          </image>
       </ImageView>
-      <Button layoutX="1046.0" layoutY="84.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="193.0" style="-fx-background-color: #69cdff; -fx-background-radius: none;" text="Go back" />
+      <Button layoutX="1046.0" layoutY="84.0" mnemonicParsing="false" onAction="#goBack" prefHeight="39.0" prefWidth="193.0" style="-fx-background-color: #69cdff; -fx-background-radius: none;" text="Go back" />
    </children>
 </AnchorPane>

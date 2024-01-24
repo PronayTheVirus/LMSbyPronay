@@ -6,6 +6,7 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -21,6 +22,27 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 public class SearchController implements Initializable {
+
+    // to check who entered here. Student or the librarian
+    // will be used for to send them back
+    int isStudent;
+    public void isStudent(int value){
+        if(value == 1){
+            isStudent = 1;
+        }
+        else if(value == 10)
+            isStudent = 10;
+    }
+    public void goBack(ActionEvent event){
+        if(isStudent == 1){
+            // is the user is student
+            HelloApplication.changeScene("isStudent");
+        }
+        else if(isStudent == 10){
+            //is the user isnt student
+            HelloApplication.changeScene("librarian");
+        }
+    }
 
     @FXML
     private TableColumn<Book, String> authorCol;

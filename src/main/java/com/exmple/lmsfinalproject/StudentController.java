@@ -102,7 +102,9 @@ public class StudentController implements Initializable {
             e.printStackTrace();
         }
     }
+    SearchController searchController = new SearchController();
     public void gotoSearch(ActionEvent event){
+        searchController.isStudent(1);
         HelloApplication.changeScene("searchBookSection");
     }
 }
