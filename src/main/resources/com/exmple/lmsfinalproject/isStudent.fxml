@@ -74,15 +74,6 @@
                   </AnchorPane>
                </content>
             </Tab>
-            <Tab text="Send note to librarians">
-               <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                     <children>
-                        <Button layoutX="402.0" layoutY="235.0" mnemonicParsing="false" onAction="#gotoSearch" prefHeight="50.0" prefWidth="439.0" text="Goto Search books" />
-                     </children>
-                  </AnchorPane>
-               </content>
-            </Tab>
         </tabs>
       </TabPane>
       <ImageView fitHeight="55.0" fitWidth="50.0" layoutX="345.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">

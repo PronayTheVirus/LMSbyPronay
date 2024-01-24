@@ -14,7 +14,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="797.0" prefWidth="1234.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.exmple.lmsfinalproject.HelloController">
    <children>
-      <Label fx:id="buildLog" layoutX="-3.0" layoutY="743.0" prefHeight="56.0" prefWidth="1243.0" style="-fx-background-color: black;" text="        Build log message:" textFill="RED">
+      <Label fx:id="buildLog" layoutX="-3.0" layoutY="743.0" prefHeight="56.0" prefWidth="1243.0" style="-fx-background-color: black;" textFill="RED">
          <font>
             <Font name="DejaVu Sans Mono Bold" size="13.0" />
          </font>
@@ -26,7 +26,7 @@
                   <Font size="34.0" />
                </font>
             </Label>
-            <ImageView fitHeight="107.0" fitWidth="116.0" layoutX="371.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="107.0" fitWidth="116.0" layoutX="354.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../icons/reading-book.png" />
                </image>
@@ -36,7 +36,7 @@
                   <Font size="34.0" />
                </font>
             </Label>
-            <ImageView fitHeight="115.0" fitWidth="107.0" layoutX="702.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="115.0" fitWidth="107.0" layoutX="682.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../icons/elearning.png" />
                </image>
@@ -51,7 +51,7 @@
                   <Image url="@../icons/library%20(1).png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="121.0" fitWidth="125.0" layoutX="1013.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="121.0" fitWidth="125.0" layoutX="998.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../icons/librarian.png" />
                </image>
@@ -95,7 +95,7 @@
                      <children>
                         <TextField fx:id="studentIDfield" layoutX="443.0" layoutY="183.0" prefHeight="42.0" prefWidth="349.0" promptText="Student ID" />
                         <TextField fx:id="passSTDfield" layoutX="443.0" layoutY="240.0" prefHeight="40.0" prefWidth="348.0" promptText="password" />
-                        <Button layoutX="445.0" layoutY="298.0" mnemonicParsing="false" onAction="#isStudent" prefHeight="42.0" prefWidth="346.0" style="-fx-background-color: #5bc658;" text="login" textFill="#f2bfbf" />
+                        <Button layoutX="445.0" layoutY="298.0" mnemonicParsing="false" onAction="#isStudent" prefHeight="42.0" prefWidth="346.0" style="-fx-background-color: #5bc658;" text="login" />
                         <ImageView fitHeight="121.0" fitWidth="113.0" layoutX="561.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../icons/profile.png" />
@@ -152,5 +152,10 @@
             <Image url="@../icons/library.png" />
          </image>
       </ImageView>
+      <Button layoutX="1068.0" layoutY="21.0" mnemonicParsing="false" onAction="#gotoSearch" prefHeight="41.0" prefWidth="146.0" style="-fx-background-color: #f9a058; -fx-background-radius: none;" text="Search a book">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

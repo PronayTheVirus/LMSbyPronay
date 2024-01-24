@@ -123,10 +123,115 @@ public class BookManagementController implements Initializable {
         }
     }
     public void gotoDashboard(ActionEvent event){
-        HelloApplication.changeScene("dashboard");
+        HelloApplication.changeScene("librarian");
     }
 
 
 
-    // Write code here to update book data
+    //code to update book data
+
+    @FXML private TextField idField2;
+    @FXML private TextField idField3;
+    @FXML private TextField idFiel4;
+    @FXML private TextField idFiel5;
+    @FXML private TextField nameField;
+    @FXML private TextField authorField;
+    @FXML private TextField quantityField;
+    @FXML private TextField locationField;
+
+
+    // update name
+    @FXML
+    public void updateName(ActionEvent event){
+        int id = Integer.parseInt(idField2.getText());
+        String name = nameField.getText();
+
+        try{
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/lms", "root", "password");
+            System.out.println("Connection established");
+            Statement statement = connection.createStatement();
+            String query = "update bookmanagement set name = '" + name + "' where id =" + id +";";
+            System.out.println(query);
+            statement.execute(query);
+            System.out.println("updated name");
+            outputLabel.setText("book name updated");
+
+        }
+        catch (SQLException e){
+            System.out.println("SQL exception occured");
+            outputLabel.setText("Failed to update book name");
+        }
+    }
+    @FXML
+    public void updateAuthor(ActionEvent event){
+        int id = Integer.parseInt(idField3.getText());
+        String author = authorField.getText();
+
+        try{
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/lms", "root", "password");
+            System.out.println("Connection established");
+            Statement statement = connection.createStatement();
+            String query = "update bookmanagement set author = '" + author + "' where id =" + id +";";
+            System.out.println(query);
+            statement.execute(query);
+            System.out.println("updated name");
+            outputLabel.setText("book author updated");
+
+        }
+        catch (SQLException e){
+            System.out.println("SQL exception occured");
+            outputLabel.setText("Failed to update book author");
+        }
+    }
+
+    // to update location
+    @FXML
+    public void updateLocation(ActionEvent event){
+        int id = Integer.parseInt(idFiel4.getText());
+        String location = locationField.getText();
+
+        try{
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/lms", "root", "password");
+            System.out.println("Connection established");
+            Statement statement = connection.createStatement();
+            String query = "update bookmanagement set location = '" + location + "' where id =" + id +";";
+            System.out.println(query);
+            statement.execute(query);
+            System.out.println("updated name");
+            outputLabel.setText("book location updated");
+
+        }
+        catch (SQLException e){
+            System.out.println("SQL exception occured");
+            outputLabel.setText("Failed to update book location");
+        }
+
+    }
+
+    // to update quantity
+    @FXML
+    public void updateQuantity(ActionEvent event){
+        int id = Integer.parseInt(idFiel5.getText());
+        String quantity = quantityField.getText();
+
+        try{
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/lms", "root", "password");
+            System.out.println("Connection established");
+            Statement statement = connection.createStatement();
+            String query = "update bookmanagement set quantity = '" + quantity + "' where id =" + id +";";
+            System.out.println(query);
+            statement.execute(query);
+            outputLabel.setText("book quantity updated");
+
+        }
+        catch (SQLException e){
+            System.out.println("SQL exception occured");
+            outputLabel.setText("Failed to update quantity");
+        }
+    }
+
+
+
+
+
 }

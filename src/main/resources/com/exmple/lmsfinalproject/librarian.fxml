@@ -124,10 +124,15 @@
                               <Font size="17.0" />
                            </font>
                         </Label>
-                        <Button layoutX="460.0" layoutY="341.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="322.0" style="-fx-background-color: #ebae9d;" text="Collected fines and received book" />
+                        <Button layoutX="460.0" layoutY="341.0" mnemonicParsing="false" onAction="#receivedBook" prefHeight="39.0" prefWidth="322.0" style="-fx-background-color: #ebae9d;" text="Collected fines and received book" />
                         <Label fx:id="fineShow" layoutX="529.0" layoutY="302.0" prefHeight="39.0" prefWidth="671.0" text="Fine amount" textFill="RED">
                            <font>
                               <Font size="17.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="l" layoutX="460.0" layoutY="406.0" textFill="#17ff5e">
+                           <font>
+                              <Font name="System Bold" size="21.0" />
                            </font>
                         </Label>
                      </children>
@@ -188,6 +193,5 @@
             </Tab>
         </tabs>
       </TabPane>
-      <Button layoutX="23.0" layoutY="29.0" mnemonicParsing="false" onAction="#gotoSearch" prefHeight="26.0" prefWidth="144.0" style="-fx-background-color: #5865f2; -fx-background-radius: none;" text="Search a book" textFill="WHITE" />
    </children>
 </AnchorPane>

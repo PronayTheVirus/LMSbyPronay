@@ -296,6 +296,11 @@ public class HelloController implements Initializable {
 
     }
 
+    // this will take user to the search book page
+    public void gotoSearch(ActionEvent event1){
+        HelloApplication.changeScene("searchBookSection");
+    }
+
 
 }
 

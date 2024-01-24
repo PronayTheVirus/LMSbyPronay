@@ -69,38 +69,29 @@
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TextField layoutX="173.0" layoutY="182.0" prefHeight="40.0" prefWidth="329.0" promptText="Old serial no" />
-                        <TextField layoutX="537.0" layoutY="233.0" prefHeight="41.0" prefWidth="329.0" promptText="Book name" />
-                        <TextField layoutX="537.0" layoutY="333.0" prefHeight="40.0" prefWidth="329.0" promptText="Author name" />
-                        <TextField layoutX="537.0" layoutY="284.0" prefHeight="42.0" prefWidth="329.0" promptText="quantity" />
-                        <TextField layoutX="537.0" layoutY="382.0" prefHeight="42.0" prefWidth="329.0" promptText="Book loation" />
-                        <Button layoutX="896.0" layoutY="232.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="164.0" style="-fx-background-color: #496f7c;" text="Update name" textFill="WHITE" />
-                        <ImageView fitHeight="138.0" fitWidth="125.0" layoutX="492.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
+                        <TextField fx:id="nameField" layoutX="537.0" layoutY="233.0" prefHeight="41.0" prefWidth="329.0" promptText="Book name" />
+                        <TextField fx:id="authorField" layoutX="537.0" layoutY="333.0" prefHeight="40.0" prefWidth="329.0" promptText="Author name" />
+                        <TextField fx:id="quantityField" layoutX="537.0" layoutY="284.0" prefHeight="42.0" prefWidth="329.0" promptText="quantity" />
+                        <TextField fx:id="locationField" layoutX="537.0" layoutY="382.0" prefHeight="42.0" prefWidth="329.0" promptText="Book loation" />
+                        <Button layoutX="896.0" layoutY="232.0" mnemonicParsing="false" onAction="#updateName" prefHeight="42.0" prefWidth="164.0" style="-fx-background-color: #496f7c;" text="Update name" textFill="WHITE" />
+                        <ImageView fitHeight="162.0" fitWidth="183.0" layoutX="492.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../icons/stock-chart.png" />
                            </image>
                         </ImageView>
-                        <TextField layoutX="537.0" layoutY="182.0" prefHeight="40.0" prefWidth="329.0" promptText="New id / serial no" />
-                        <TextField layoutX="173.0" layoutY="233.0" prefHeight="40.0" prefWidth="329.0" promptText="Book id" />
-                        <Button layoutX="896.0" layoutY="181.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="164.0" style="-fx-background-color: #496f7c;" text="Update id" textFill="WHITE" />
-                        <TextField layoutX="173.0" layoutY="285.0" prefHeight="40.0" prefWidth="329.0" promptText="Book id" />
-                        <TextField layoutX="173.0" layoutY="333.0" prefHeight="40.0" prefWidth="329.0" promptText="Book id" />
-                        <Button layoutX="896.0" layoutY="284.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="164.0" style="-fx-background-color: #496f7c;" text="Update quantity" textFill="WHITE" />
-                        <Button layoutX="896.0" layoutY="332.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="164.0" style="-fx-background-color: #496f7c;" text="Update author" textFill="WHITE" />
-                        <TextField layoutX="173.0" layoutY="383.0" prefHeight="40.0" prefWidth="329.0" promptText="Book id" />
-                        <Button layoutX="896.0" layoutY="382.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="164.0" style="-fx-background-color: #496f7c;" text="Update location" textFill="WHITE" />
+                        <TextField fx:id="idField2" layoutX="173.0" layoutY="233.0" prefHeight="40.0" prefWidth="329.0" promptText="Book id" />
+                        <TextField fx:id="idField3" layoutX="173.0" layoutY="285.0" prefHeight="40.0" prefWidth="329.0" promptText="Book id" />
+                        <TextField fx:id="idFiel4" layoutX="173.0" layoutY="333.0" prefHeight="40.0" prefWidth="329.0" promptText="Book id" />
+                        <Button layoutX="896.0" layoutY="284.0" mnemonicParsing="false" onAction="#updateQuantity" prefHeight="42.0" prefWidth="164.0" style="-fx-background-color: #496f7c;" text="Update quantity" textFill="WHITE" />
+                        <Button layoutX="896.0" layoutY="332.0" mnemonicParsing="false" onAction="#updateAuthor" prefHeight="42.0" prefWidth="164.0" style="-fx-background-color: #496f7c;" text="Update author" textFill="WHITE" />
+                        <TextField fx:id="idFiel5" layoutX="173.0" layoutY="383.0" prefHeight="40.0" prefWidth="329.0" promptText="Book id" />
+                        <Button layoutX="896.0" layoutY="382.0" mnemonicParsing="false" onAction="#updateLocation" prefHeight="42.0" prefWidth="164.0" style="-fx-background-color: #496f7c;" text="Update location" textFill="WHITE" />
                      </children>
                   </AnchorPane>
                </content>
             </Tab>
-            <Tab text="Untitled Tab 2">
-               <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-               </content>
-            </Tab>
         </tabs>
       </TabPane>
-      <Button layoutX="1007.0" layoutY="14.0" mnemonicParsing="false" onAction="#gotoDashboard" prefHeight="26.0" prefWidth="205.0" style="-fx-background-color: red;" text="Go back to dashboard" textFill="WHITE" />
-      <Button layoutX="1007.0" layoutY="52.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="205.0" style="-fx-background-color: black;" text="Previous page" textFill="WHITE" />
+      <Button layoutX="1015.0" layoutY="20.0" mnemonicParsing="false" onAction="#gotoDashboard" prefHeight="45.0" prefWidth="205.0" style="-fx-background-color: #89ce6d; -fx-background-radius: none;" text="Go back" textFill="WHITE" />
    </children>
 </AnchorPane>

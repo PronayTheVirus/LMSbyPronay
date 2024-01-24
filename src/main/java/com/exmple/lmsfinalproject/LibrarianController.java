@@ -233,13 +233,40 @@ public class LibrarianController implements Initializable {
 
     @FXML
     private TextField sID;
+    int fineID;
     public void viewFines(ActionEvent event) {
         int id = Integer.parseInt(sID.getText());
+        fineID = id;
 
         // in case the student doesn't exist
         fineShow.setText("Couldn't found any match with target");
         long tk = finesCalculator(id); // fine calculator call
         fineShow.setText("Fine amount: " + String.valueOf(tk) + " TK");  // to show fine ammount in label
+
+    }
+
+
+    //receive book after collecting fines
+
+    @FXML private Label l;
+    @FXML
+    public void receivedBook(ActionEvent event){
+        try{
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/lms", "root", "password");
+            System.out.println("Connection established");
+            Statement statement = connection.createStatement();
+            String query = "delete from issuebook where id = " + fineID + ";";
+            System.out.println(query);
+            statement.execute(query);
+//            System.out.println("delete from librarian where email = '" + target+ "';");
+
+            l.setText("Collected book from " + fineID);
+        }
+        catch (SQLException e){
+            l.setText("Something went wrong");
+            System.out.println("SQL exception occured");
+            e.printStackTrace();
+        }
 
     }
 
@@ -361,8 +388,7 @@ public class LibrarianController implements Initializable {
      }
  }
 
- // this is to show who lent books in a table
-    // view issued book section
+
     @FXML
     private TableColumn<Lent, Number> idCol;
     @FXML
@@ -382,6 +408,8 @@ public class LibrarianController implements Initializable {
 
 
     ObservableList<Lent> lentObservableList;
+    // this is to show who lent books in a table
+    // view issued book section
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         List<Lent> lentList = list();
@@ -425,10 +453,4 @@ public class LibrarianController implements Initializable {
         }
         return lentList;
     }
-    SearchController searchController = new SearchController();
-    public void gotoSearch(ActionEvent event){
-        searchController.isStudent(10);
-        HelloApplication.changeScene("searchBookSection");
-    }
-
 }

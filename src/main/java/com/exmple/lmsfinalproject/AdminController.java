@@ -40,6 +40,7 @@ public class AdminController {
             String query = "insert into librarian values('"  + mail + "','" + pass + "');";
             statement.execute(query);
             System.out.println("Librarian DATA INSERTED");
+            output.setText("Librarian DATA INSERTED");
         }
         catch (SQLException e){
             System.out.println("SQL exception occured");
@@ -98,6 +99,7 @@ public class AdminController {
             System.out.println("delete from librarian where email = '" + target+ "';");
             statement.execute(query);
             System.out.println("Librarian Delted");
+            output.setText("Librarian Delted");
             return true;
         }
         catch (SQLException e){
@@ -152,9 +154,9 @@ public class AdminController {
             statement.execute(query);
             query = "delete from memberinfo;";
             statement.execute(query);
-            query = "delete from requestBook;";
+            query = "delete from issuebookhist;";
             statement.execute(query);
-            query = "delete from lendreq;";
+            query = "delete from note;";
             statement.execute(query);
 //            System.out.println("delete from librarian where email = '" + target+ "';");
 
