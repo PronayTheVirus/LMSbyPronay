@@ -12,7 +12,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="797.0" prefWidth="1234.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.exmple.lmsfinalproject.SearchController">
    <children>
-      <TextField fx:id="search" alignment="CENTER" layoutX="266.0" layoutY="254.0" prefHeight="39.0" prefWidth="716.0" promptText="Type book name to filter" />
+      <TextField fx:id="filterTextField" alignment="CENTER" layoutX="266.0" layoutY="254.0" onKeyPressed="#filterAction" prefHeight="39.0" prefWidth="716.0" promptText="Type book name to filter" />
       <TableView fx:id="bookTableView" layoutX="14.0" layoutY="311.0" prefHeight="472.0" prefWidth="1191.0">
         <columns>
           <TableColumn fx:id="idColum" prefWidth="104.0" text="id" />

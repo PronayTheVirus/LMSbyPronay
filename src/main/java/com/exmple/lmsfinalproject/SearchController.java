@@ -94,6 +94,26 @@ public class SearchController implements Initializable {
     }
 
 
-    // this is to insert book into the table
+   // to filter
+    public TextField filterTextField;
+     public void filterAction(){
+         String search = filterTextField.getText();
+         System.out.println(search);
+
+
+         List<Book> filterList =  search(search);
+         bookObservableList.clear();
+         bookObservableList.addAll(filterList);
+     }
+     public List<Book> search(String BookName){
+         List<Book> list = list();
+         List <Book> filterList = new ArrayList<>();
+         for (Book book : list) {
+             if(book.getName().contains(BookName)){
+                 filterList.add(book);
+             }
+         }
+         return filterList;
+      }
 
 }
